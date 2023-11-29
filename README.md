@@ -1,5 +1,5 @@
 # aws-security-specialist-notes
-This is a personal notes for AWS Security Specialist Exam. 
+This is a personal note capturing various AWS resources for securing application deployed in AWS account. 
 
 
 ## Index
