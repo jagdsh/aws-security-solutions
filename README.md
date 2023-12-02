@@ -1,9 +1,12 @@
-# aws-security-specialist-notes
-This is a personal note capturing various AWS resources for securing application deployed in AWS account. 
+# AWS Security solutions
+
+This is a personal notes capturing various various AWS resources which are helpful in securing application. This repo containsa an list of AWS resources which can be used for detecting, isolating and analyzing.
 
 
 ## Index
 
-- [Guard Duty](./guard_duty/index.md)
-- [Security Hub](./security-hub/index.md)
-- [Amazon Detective](./detective/)
+- [Guard Duty](./guard_duty/README.md)
+- [Security Hub](./security-hub/README.md)
+- [Amazon Detective](./detective/README.md)
+- [Security Testing](./security-testing/README.md)
+- [Compromised Resources](./compromised-resources/README.md)
