@@ -9,4 +9,6 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Security Hub](./security-hub/README.md)
 - [Amazon Detective](./detective/README.md)
 - [Security Testing](./security-testing/README.md)
+    - [Penetration Testing](./security-testing/README.md#Penetration-Testing)
 - [Compromised Resources](./compromised-resources/README.md)
+    - [AWS Account](./compromised-resources/README.md#compromised-aws-account")
