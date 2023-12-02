@@ -7,9 +7,11 @@
 
 ## Possible Architecture
 
-- [Architecture](./possible_architecture.png)
+- ![Architecture](./possible_architecture.png)
 
 Guard Duty / Security Hub will send a finding like **Stealth:IAMUser/CloudTrailLoggingDisabled** and then Amazon Detective will gather information to mark it as True or false positive with manual intervention.
+
+Detective helps to do the following steps
 
 - Triage
     - Determine wheather it is True or False Positive
