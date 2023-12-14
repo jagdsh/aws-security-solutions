@@ -19,3 +19,10 @@ This is a personal notes capturing various various AWS resources which are helpf
     - [AWS Credentials](./compromised-resources/README.md#compromised-aws-credentials)
     - [IAM Role](./compromised-resources/README.md#compromised-iam-role)
     - [AWS Account](./compromised-resources/README.md#compromised-aws-account)
+
+- [IAM Policy](./IAM/README.md)
+    - [Access Analyzer](./IAM/README.md#iam-access-analyzer)
+    - [Policy Generator](./IAM/README.md#iam-access-analyzer-policy-generation)
+- [Policy](./policy/README.md)
+    - [Acceptable Use Policy](./policy/README.md#acceptable-use-policy)
+    - [AWS Abuse Report](./policy/README.md#aws-abuse-report)

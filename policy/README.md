@@ -1,4 +1,4 @@
-## AWS Acceptable Use Policy (AUP)
+## Acceptable Use Policy (AUP)
 
 - Governs your use of the services offered by AWS
     You may not use for:
