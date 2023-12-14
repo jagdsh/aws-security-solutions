@@ -245,3 +245,52 @@ Follow the below steps for recovering the Lost Password access to the Windows EC
 ![Reference Diagram](./lost_password_recovery_system_manager.png)
 
 ## EC2 Rescue tool
+
+### For Linux
+
+- Diagnose and troubleshoot common issues
+- Gather syslog logs, diagnose problematic kernel parameters, diagnose common OpenSSH issues, …
+- Supports over 100 modules
+- Amazon Linux 2, Ubuntu, RHEL, SUSE Linux
+- Install manually or using AWSSupport-TroubleshootSSH Automation Document
+- Installs the tool and tries to fix issues with SSH connections to the instance
+- Upload the results directly to AWS Support or an S3 bucket
+
+    ![For Linux](./ec2_rescue_tool_linux.png)
+
+    ### Use Cases
+
+- Collect System Utilization Reports
+    - vmstate, iostat, mpstat, …
+- Collect Logs and Details
+    - syslog, dmesg, application error logs, and SSM logs
+- Detect System Problems
+    - Asymmetric routing or duplicate root device labels
+- Automatically Remediate System Problems
+    - Correcting OpenSSH file permissions
+- Disabling known problematic kernel problems
+    - You can create your own custom module
+
+### For Windows
+
+- Diagnose and troubleshoot common issues
+- Collect log files, troubleshoot issues, provide suggestions,
+- *Supports 2 modules (data collector, analyzer)*
+- Windows Server 2008 R2 or later
+- Install manually or using AWSSupport-RunEC2RescueForWindowsTool Run Command Document
+    - Commands: CollectLogs, FixAll, ResetAccess
+- Use AWSSupport-ExecuteEC2Rescue Automation Document to troubleshoot connectivity issues
+- Upload the results directly to an S3 bucket
+
+    ![For Linux](./ec2_rescue_tool_windows.png)
+
+    ### Use Cases
+- Instance Connectivity Issues
+- Firewall, RDP, or network interface configuration
+- OS Boot Issues
+- Blue screen or stop error, a boot loop, or a corrupted registry
+- Gather OS Logs and Configuration Files
+- If you need advanced log analysis and troubleshooting
+- Common OS Issues
+- Disk signature collision
+- Perform a restor
