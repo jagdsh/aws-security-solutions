@@ -8,20 +8,20 @@ Key format supported: ED25519 and 2048-bit SSH-2 RSA keys.
 
 Note: We should be keeping the private key secure, we can cannot recover it.
 
-![EC2 key Pairs](./key_pairs.png)
+![EC2 key Pairs](./references/key_pairs.png)
 
 
 ## EC2 Key troubleshooting
 
 The key pairs, are persisted in the EC2 instance. Even when we delete it from AWS console, it remains in the mounted volume `~/.ssh/authorized_keys`
 
-[Reference Diagram](./key_pairs_console.png)
+[Reference Diagram](./references/key_pairs_console.png)
 
 - When EC2 machines are pre build using AMI the old keys wil be present in the instance along with the new key used while creating EC2 instance.
 
 - The user can use old/new private key for SSH into EC2 instance
 
-[Reference Diagram](./key_pair_old_new.png)
+[Reference Diagram](./references/key_pair_old_new.png)
 
 
 ## Remediating EC2 Exposed Key Pair 
@@ -30,7 +30,7 @@ The key pairs, are persisted in the EC2 instance. Even when we delete it from AW
 - Create a new Key Pair and add its public key to the `~/.ssh/authorized_keys` file on all EC2 instances
     - Note: Automate add/delete public keys on EC2 instances rule by running SSM Run Command
 
-![Reference Diagram](./key_pair_exposed_remediating.png)
+![Reference Diagram](./references/key_pair_exposed_remediating.png)
 
 
 ## EC2 SSH Connection workflow
@@ -79,7 +79,7 @@ The key pairs, are persisted in the EC2 instance. Even when we delete it from AW
 
 https://ip-ranges.amazonaws.com/ip-ranges.json
 
-![Reference Diagram](./instance_connect_working.png)
+![Reference Diagram](./references/instance_connect_working.png)
 
 
 ## EC2 Serial Console
@@ -92,7 +92,7 @@ Features:
  - Only one active session per EC2 instance
  - Disabled by default (enable at AWS account level)
 
- ![Reference Diagram](./serial_console.png)
+ ![Reference Diagram](./references/serial_console.png)
 
 ## Lost SSH EC2 Key Pair - Linux
     There many techniques to recover the lost key pair, I have captured few techniques here
@@ -127,7 +127,7 @@ Follow the below steps for recovering the SSH access to the EC2 instance
 5. Connect with private key
 6. Delete the EC2 User Data 
 
-![Reference Diagram](./lost_key_pair_recovery_1_user_data.png)
+![Reference Diagram](./references/lost_key_pair_recovery_1_user_data.png)
 
 ### Technic-2: Using Systems Manager
 
@@ -139,7 +139,7 @@ Follow the below steps for recovering the SSH access to the EC2 instance
 4. It store the private key to SSM parameter in encrypted format, in the path `/ec2rl/openssh/`${\color{red}instance\_id}$`/key`
 5. It uploads the public key to the EC2 instance
 
-![Reference Diagram](./lost_key_pair_recovery_2_ssm.png)
+![Reference Diagram](./references/lost_key_pair_recovery_2_ssm.png)
 
 ### Technic-3: Using EC2 Instance Connect
 
@@ -152,7 +152,7 @@ Follow the below steps for recovering the SSH access to the EC2 instance
 4. Add the newly generated Public key in the `~/.ssh/authorized_keys`
 
 
-![Reference Diagram](./lost_key_pair_recovery_3_ec2_connect_api.png)
+![Reference Diagram](./references/lost_key_pair_recovery_3_ec2_connect_api.png)
 
 ### Technic-4: Using EC2 Serial Console
 
@@ -165,7 +165,7 @@ Follow the below steps for recovering the SSH access to the EC2 instance
 Advantages in this method:
 1. Connect to your instance without a working network connection
 
-![Reference Diagram](./lost_key_pair_recovery_4_serial_console.png)
+![Reference Diagram](./references/lost_key_pair_recovery_4_serial_console.png)
 
 ### Technic-5: Using EBS Volume Swap
 
@@ -179,7 +179,7 @@ Follow the below steps for recovering the SSH access to the EC2 instance
 7. Re-attach the volume to the original EC2 instance
 8. Restart the instance
 
-![Reference Diagram](./lost_key_pair_recovery_5_ebs_volume_swap.png)
+![Reference Diagram](./references/lost_key_pair_recovery_5_ebs_volume_swap.png)
 
 
 ## Lost EC2 Password - Windows
@@ -197,7 +197,7 @@ Follow the below steps for recovering the Lost Password access to the Windows EC
 5. Re-attach the volume to the original instance, then restart the instance
 6. Now you are prompted to enter a new password, since you are running the instance first time.
 
-![Reference Diagram](./lost_password_recovery_ec2_launch_v2.png)
+![Reference Diagram](./references/lost_password_recovery_ec2_launch_v2.png)
 
 ### Technic-2: Using EC2Config
 
@@ -210,7 +210,7 @@ Follow the below steps for recovering the Lost Password access to the Windows EC
 5. Set EC2SetPassword to Enabled
 6. Reattach the volume to the original instance, then restart the instance
 
-![Reference Diagram](./lost_password_recovery_ec2_config.png)
+![Reference Diagram](./references/lost_password_recovery_ec2_config.png)
 
 ### Technic-3: Using EC2Launch
 
@@ -224,7 +224,7 @@ Follow the below steps for recovering the Lost Password access to the Windows EC
 6. Reattach the volume to the original instance, then restart the instance
 
 
-![Reference Diagram](./lost_password_recovery_ec2_launch.png)
+![Reference Diagram](./references/lost_password_recovery_ec2_launch.png)
 
 ### Technic-4: Using Systems Manager
 
@@ -242,7 +242,7 @@ Must have SSM Agent installed
 
 Follow the below steps for recovering the Lost Password access to the Windows EC2 instance 
 
-![Reference Diagram](./lost_password_recovery_system_manager.png)
+![Reference Diagram](./references/lost_password_recovery_system_manager.png)
 
 ## EC2 Rescue tool
 
@@ -256,7 +256,7 @@ Follow the below steps for recovering the Lost Password access to the Windows EC
 - Installs the tool and tries to fix issues with SSH connections to the instance
 - Upload the results directly to AWS Support or an S3 bucket
 
-    ![For Linux](./ec2_rescue_tool_linux.png)
+    ![For Linux](./references/ec2_rescue_tool_linux.png)
 
     ### Use Cases
 
@@ -282,7 +282,7 @@ Follow the below steps for recovering the Lost Password access to the Windows EC
 - Use AWSSupport-ExecuteEC2Rescue Automation Document to troubleshoot connectivity issues
 - Upload the results directly to an S3 bucket
 
-    ![For Linux](./ec2_rescue_tool_windows.png)
+    ![For Linux](./references/ec2_rescue_tool_windows.png)
 
     ### Use Cases
 - Instance Connectivity Issues

@@ -5,6 +5,8 @@ This is a personal notes capturing various various AWS resources which are helpf
 
 ## Index
 
+### Threat Detection and Incident Response
+
 - [Guard Duty](./guard_duty/README.md)
 - [Security Hub](./security-hub/README.md)
 - [Amazon Detective](./detective/README.md)
@@ -19,6 +21,13 @@ This is a personal notes capturing various various AWS resources which are helpf
     - [AWS Credentials](./compromised-resources/README.md#compromised-aws-credentials)
     - [IAM Role](./compromised-resources/README.md#compromised-iam-role)
     - [AWS Account](./compromised-resources/README.md#compromised-aws-account)
+- [EC2 Troubleshooting](./EC2/README.md)
+    - [Remediating EC2 Exposed Key Pair](./EC2/README.md#remediating-ec2-exposed-key-pair)
+    - [EC2 SSH Connection workflow](./EC2/README.md#ec2-ssh-connection-workflow)
+    - [EC2 Serial Console](./EC2/README.md#ec2-serial-console)
+    - [Lost SSH EC2 Key Pair - Linux](./EC2/README.md#lost-ssh-ec2-key-pair-linux)
+    - [EC2 Rescue tool For Linux](./EC2/README.md#for-linux)
+    - [EC2 Rescue tool For Windows](./EC2/README.md#for-windows)
 
 - [IAM Policy](./IAM/README.md)
     - [Access Analyzer](./IAM/README.md#iam-access-analyzer)
@@ -26,3 +35,21 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Policy](./policy/README.md)
     - [Acceptable Use Policy](./policy/README.md#acceptable-use-policy)
     - [AWS Abuse Report](./policy/README.md#aws-abuse-report)
+
+### Security Logging and Monitoring
+
+- [Amazon Inspector](./)
+
+## Appendix
+
+    *Vulnerability* – weakness in a system, system security procedures, internal controls, or implementation that could be exploited
+
+    *Exploit* – code that takes advantage of software vulnerability or security flaws
+
+    *Payload* – a malware that the attacker intends to deliver to the victim
+
+    *Automated Vulnerability Scanner* – a tool that run automated scans of an IT environments to detect vulnerabilities, example : nessus scan (note: you don't need to know that tool for the exam)
+
+    *Common Vulnerabilities and Exposures (CVE)* – a list of publicly disclosed security flaws.
+
+    *Common Vulnerability Scoring System (CVSS)* – a way to produce a numerical score reflecting the severity of a vulnerability or a security flaws
