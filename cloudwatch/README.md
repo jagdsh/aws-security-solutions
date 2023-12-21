@@ -9,7 +9,7 @@
 - Make sure IAM permissions are correct
 - Default namespace for metrics collected by the Unified CloudWatch agent is CWAgent (can be configured/changed)
 
-![Unified CW Agent](./unified_cw_agent.png)
+![Unified CW Agent](./cw_references/unified_cw_agent.png)
 
 *CloudWatchAgentServerPolicy - Logs:PutLogEvents, Logs:DescribeLogEvents, Logs:CreateLogStream, GetSSMParameters*
 *CloudWatchAgentAdminPolicy  - Logs:PutLogEvents, Logs:DescribeLogEvents, Logs:CreateLogStream, GetSSMParameters, PutSSMParameters*
@@ -34,7 +34,7 @@
   - Check you’re using the correct namespace (default: CWAgent)
   - Check the configuration file `amazon-cloudwatch-agent.json`
 
-![CW JSON Agent](./cw-agent-json.png)
+![CW JSON Agent](./cw_references/cw-agent-json.png)
 
 - CloudWatch Agent Not Pushing Log Events
   - Update to the latest CloudWatch Agent version
@@ -44,7 +44,7 @@
   - Verify the system time on the instance is correctly configured
 - Check CloudWatch Agent logs at ${\color{yellow}`/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log`}$
 
-![CW IAM Policy](./cw-iam-policy.png)
+![CW IAM Policy](./cw_references/cw-iam-policy.png)
 
 # CloudWatch Logs
 
@@ -93,13 +93,13 @@
 - Can query multiple Log Groups in different AWS accounts
 - It’s a query engine, not a real-time engine -> You can only query older data
 
-![Insights Dashboard](./cw_insights.png)
+![Insights Dashboard](./cw_references/cw_insights.png)
 
-![Purpose-built query](./cw_query.png)
+![Purpose-built query](./cw_references/cw_query.png)
 
 ## S3 Export
 
-![S3 Export](./cw_s3_export.png)
+![S3 Export](./cw_references/cw_s3_export.png)
 
 - Log data can take up to 12 hours to become available for export
 - The API call is CreateExportTask
@@ -111,13 +111,13 @@
 - Send to Kinesis Data Streams, Kinesis Data Firehose, or Lambda
 - Subscription Filter – filter which logs are events delivered to your destination
 
-![Cloud watch](./cw_subscription.png)
+![Cloud watch](./cw_references/cw_subscription.png)
 
 ## Aggregation Multi-Account & Multi Region
 
-![Cross Account & Cross Region logs Subscription](./cw_subscription_cross_account_cross_region.png)
+![Cross Account & Cross Region logs Subscription](./cw_references/cw_subscription_cross_account_cross_region.png)
 
 - Cross-Account Subscription – send log events to resources in a different AWS account (KDS, KDF)
 
-![Cross Account Subscription](./cw_subscription_cross_account.png)
-![Cross Account Subscription IAM Pollicy](./cw_subscription_cross_account_policy.png)
+![Cross Account Subscription](./cw_references/cw_subscription_cross_account.png)
+![Cross Account Subscription IAM Pollicy](./cw_references/cw_subscription_cross_account_policy.png)
