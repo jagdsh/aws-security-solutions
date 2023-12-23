@@ -9,6 +9,7 @@
 ![Rule filter](./filter_action_trgger.png)
 
 - Trigger Lambda functions, send SQS/SNS messages
+- Parterened event sources are pre defined in the console.
 
 ![Different Bus](./different_bus.png)
 
@@ -33,3 +34,8 @@
 - EventBridge can analyze the events in your bus and infer the schema
 - The Schema Registry allows you to generate code for your application, that will know in advance how data is structured in the event bus
 - Schema can be versioned
+
+## Sandbox
+
+- There is a sandbox for trying out various rule pattern for setting up events in the event bus
+-
