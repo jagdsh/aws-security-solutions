@@ -82,7 +82,7 @@
 - CloudTrail based on filter
 - Route53: Log DNS queries
 
-## Insights
+## Log Insights
 
 - Search and analyze log data stored in CloudWatch Logs
   - Example: find a specific IP inside a log, count occurrences of “ERROR” in your logs
@@ -121,3 +121,13 @@
 
 ![Cross Account Subscription](./cw_references/cw_subscription_cross_account.png)
 ![Cross Account Subscription IAM Pollicy](./cw_references/cw_subscription_cross_account_policy.png)
+
+## Contributor Insights
+
+- Analyze log data and create time series that display contributor data
+- Helps you find top talkers and understand who/what is impacting system performance
+- Example: find bad hosts, identify the heaviest network users, find the URLs that generate the most errors
+- Works for any AWS-generated logs (VPC, DNS, etc..)
+- Built-in rules created by AWS (leverages your CW Logs) or build your own rules.
+
+![Contributor Insights](./contributor_insights.png)
