@@ -41,6 +41,12 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Athena](./athena/README.md)
 - [CloudTrail](./cloudtrail/README.md)
   - [Summary](./cloudtrail/README.md#summary-monitor-account-activity)
+- [Macie](./macie/README.md)
+- [S3 Event Notification](./s3/event-notifications/README.md)
+- [VPC Flow Logs](./vpc/flow-logs/README.md)
+- [VPC Traffic Mirroring](./vpc/traffic-mirroring/README.md)
+- [Route 53 Query Logging](./route53/README.md)
+- [OpenSearch](./opensearch/README.md)
 
 ## Appendix
 
