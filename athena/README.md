@@ -27,7 +27,6 @@
   - Example: s3://athena-examples/flight/parquet/year=1991/month=1/day=1/
 - Use larger files (> 128 MB) to minimize overhead
 
-
 ## Federated Query
 
 ![Federated Query](./athena_federated_query.png)
