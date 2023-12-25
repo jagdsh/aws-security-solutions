@@ -22,7 +22,7 @@
 
 - Customer Gateway (CGW) => *On Premises side*
   - Software application or physical device on customer side of the VPN connection
-  - https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html#DevicesTested
+  - [Reference for CGW](https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html#DevicesTested)
 
 - Nat Device
   - If it’s behind a NAT device that’s enabled for NAT traversal (NAT-T), use the public IP address of the NAT device
