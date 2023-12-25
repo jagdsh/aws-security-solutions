@@ -70,6 +70,8 @@
 
 ### VPC Endpoint – Secrets Manager
 
+- If you did not use VPC Interface then you should setup NAT Gateway and internet gateways to access the secrets manager which is complicated
+
 ![Accessing Secrets Manager](./vpc_endpoint_eg_secrets_manager.png)
 
 ### VPC Endpoint – SSM Session Manager
@@ -97,19 +99,3 @@
 ![API Gateway](./vpc_endpoint_eg_api_gateway.png)
 
 ![API Gateway Resource poolicy](./vpc_endpoint_eg_api_gateway_resource_policy.png)
-
-## Exposing services in your VPC to other VPC
-
-### Option 1: Make it public
-
-- Goes through the public www
-- Tough to manage access
-
-![Option 1](./exposing_vpc_to_vpc_option_1.png)
-
-### Option 2: VPC Peering
-
-- Must create many peering relations
-- Opens the whole network
-
-![Optiion 2](./exposing_vpc_to_vpc_option_2.png)

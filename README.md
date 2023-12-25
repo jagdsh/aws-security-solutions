@@ -56,6 +56,7 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [VPC Peering](./infrastructure-and-security/README.md#vpc-peering)
 - [VPC Endpoints](./vpc/endpoints/README.md)
 - [Private Link](./vpc/private-link/README.md)
+- [Network Access Control List](./security_groups_NACLs/README.md#network-access-control-list)
 
 ## Appendix
 
@@ -70,3 +71,5 @@ This is a personal notes capturing various various AWS resources which are helpf
     *Common Vulnerabilities and Exposures (CVE)* – a list of publicly disclosed security flaws.
 
     *Common Vulnerability Scoring System (CVSS)* – a way to produce a numerical score reflecting the severity of a vulnerability or a security flaws
+
+    *Availability Zones* - Each Region has multiple, isolated locations known as Availability Zones. The code for Availability Zone is its Region code followed by a letter identifier. For example, us-east-1a.
