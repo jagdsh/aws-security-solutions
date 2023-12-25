@@ -48,6 +48,15 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Route 53 Query Logging](./route53/README.md)
 - [OpenSearch](./opensearch/README.md)
 
+### Infrastructure and Security
+
+- [Bastion Host](./infrastructure-and-security/README.md#bastion-host)
+- [Site to Site VPN](./infrastructure-and-security/README.md#site-to-site-vpn)
+- [Client VPN](./infrastructure-and-security/README.md#client-vpn)
+- [VPC Peering](./infrastructure-and-security/README.md#vpc-peering)
+- [VPC Endpoints](./vpc/endpoints/README.md)
+- [Private Link](./vpc/private-link/README.md)
+
 ## Appendix
 
     *Vulnerability* – weakness in a system, system security procedures, internal controls, or implementation that could be exploited
