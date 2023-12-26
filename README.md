@@ -63,9 +63,11 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [WAF - Web application Firewall](./firewall-and-shield/README.md#aws-waf–web-application-firewall)
 - [Shield](./firewall-and-shield/README.md#aws-shield)
 - [DDoS Resiliency](./firewall-and-shield/README.md#aws-best-practices-for-ddos-resiliency)
-- [API Gateway](./api-gateway/README.md)
-- 
+- [API Gateway](./api-gateway/README.md#api-gateway)
+- [AWS Artifact](./api-gateway/README.md#aws-artifacts-(not-really-a-service))
+- [DNSSEC](./route53/README.md#dns-security-extensions-(dnssec))
 - [Network Firewall](./firewall-and-shield/README.md#aws-network-firewall)
+- [Simple Email Service](./simple-email-service/README.md)
 
 ## Appendix
 
