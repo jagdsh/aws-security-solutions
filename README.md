@@ -60,8 +60,12 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Security Groups](./security_groups_NACLs/README.md#security-group-vs.-nacls)
 - [Transit Gateway](./transit-gateway/README.md)
 - [CloudFront](./cloudfront/README.md)
-- [Web application Firewall](./waf/README.md#aws-waf–web-application-firewall)
-- [Shield](./waf/README.md#aws-shield)
+- [WAF - Web application Firewall](./firewall-and-shield/README.md#aws-waf–web-application-firewall)
+- [Shield](./firewall-and-shield/README.md#aws-shield)
+- [DDoS Resiliency](./firewall-and-shield/README.md#aws-best-practices-for-ddos-resiliency)
+- [API Gateway](./api-gateway/README.md)
+- 
+- [Network Firewall](./firewall-and-shield/README.md#aws-network-firewall)
 
 ## Appendix
 
