@@ -57,6 +57,11 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [VPC Endpoints](./vpc/endpoints/README.md)
 - [Private Link](./vpc/private-link/README.md)
 - [Network Access Control List](./security_groups_NACLs/README.md#network-access-control-list)
+- [Security Groups](./security_groups_NACLs/README.md#security-group-vs.-nacls)
+- [Transit Gateway](./transit-gateway/README.md)
+- [CloudFront](./cloudfront/README.md)
+- [Web application Firewall](./waf/README.md#aws-waf–web-application-firewall)
+- [Shield](./waf/README.md#aws-shield)
 
 ## Appendix
 
