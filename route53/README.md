@@ -31,6 +31,10 @@
 
 ### DNS Poisoning (Spoofing)
 
+> Web Server
+> (example.com)
+> (IP: 9.10.11.12)
+
 - DNS works on UDP protocol which makes it easy to hack
 - There is no cryptographic DNS verification process
 
@@ -45,7 +49,7 @@
 - Step 2 – Enable DNSSEC signing and create a KSK
   - Enable DNSSEC in Route 53 for your hosted zone (Console or CLI)
   - Make Route 53 create a KSK in the console and link it to a Customer managed CMK
-  -- Step 3 – Establish chain of trust
+- Step 3 – Establish chain of trust
   - Create a chain of trust between the hosted zone and the parent hosted zone
   - By creating a Delegation Signer (DS) record in the parent zone
   - It contains a hash of the public key used to sign DNS records
@@ -55,4 +59,6 @@
 
 ### Chain of Trust
 
+- All the server are DNSSEC aware
+- 
 ![Chain of Trust](./dnssec_chain_of_trust.png)
