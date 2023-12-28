@@ -69,6 +69,18 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Network Firewall](./firewall-and-shield/README.md#aws-network-firewall)
 - [Simple Email Service](./simple-email-service/README.md)
 
+### Identity and Access management
+
+- [IAM](./iam/README.md)
+  - [IAM Policies](./iam/README.md#)
+  - [IAM Condition](./iam/README.md#)
+  - [IAM Permission](./iam/README.md#)
+  - [Identity Based vs Resource-based Policy](./iam/README.md#)
+    - [Amazon EventBridge – Security](./event-bridge/README.md#amazon-eventbridge–security)
+    - [Simple Queue Service (SQS)](./sqs/README.md#sqs-queue-access-policy)
+  - [Attribute based Access Control (ABAC)](./iam/README.md##)
+  - [IAM Multi-Factor Authentication](./iam/README.md#)
+
 ## Appendix
 
     *Vulnerability* – weakness in a system, system security procedures, internal controls, or implementation that could be exploited
