@@ -78,8 +78,11 @@ This is a personal notes capturing various various AWS resources which are helpf
   - [Identity Based vs Resource-based Policy](./iam/README.md#)
     - [Amazon EventBridge – Security](./event-bridge/README.md#amazon-eventbridge–security)
     - [Simple Queue Service (SQS)](./sqs/README.md#sqs-queue-access-policy)
-  - [Attribute based Access Control (ABAC)](./iam/README.md##)
-  - [IAM Multi-Factor Authentication](./iam/README.md#)
+  - [Attribute based Access Control (ABAC)](./iam/access_control/README.md#abac–attribute-based-access-control)
+    - [ABAC vs RBAC](./iam/access_control/README.md#abac-vs.-rbac)
+    - [IAM Multi-Factor Authentication](./iam/README.md#)
+  - [IAM Credential Report](./iam/access_control/README.md#iam-credentials-report)
+  - [IAM Roles for Services](./iam/access_control/README.md#iam-roles-for-services)
 
 ## Appendix
 
