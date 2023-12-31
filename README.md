@@ -80,9 +80,28 @@ This is a personal notes capturing various various AWS resources which are helpf
     - [Simple Queue Service (SQS)](./sqs/README.md#sqs-queue-access-policy)
   - [Attribute based Access Control (ABAC)](./iam/access_control/README.md#abac–attribute-based-access-control)
     - [ABAC vs RBAC](./iam/access_control/README.md#abac-vs.-rbac)
-    - [IAM Multi-Factor Authentication](./iam/README.md#)
+    - [IAM Multi-Factor Authentication](./iam/access_control/README.md#multi-factor-authentication-mfa)
   - [IAM Credential Report](./iam/access_control/README.md#iam-credentials-report)
   - [IAM Roles for Services](./iam/access_control/README.md#iam-roles-for-services)
+  - [Amazon STS - Seurity Token Service](./iam/sts/README.md#amazon-sts-seurity-token-service)
+  - [Sample SCP](./iam/sts/README.md#sample-scp)
+  - [Instance Metadata Service (IMDS)](./iam/instance_metadata_service_imds/README.md#aws-ec2-instance-metadata-service-(imds))
+  - [IAM in S3](./iam/s3/README.md#iam-in-s3)
+    - [How Authorization Works in Amazon S3](./iam/s3/README.md#how-authorization-works-in-amazon-s3)
+    - [Object Operation Request example: 3 accounts](./iam/s3/README.md#object-operation-request-example:-3-accounts)
+    - [S3 Canned ACL – Deep Dive](./iam/s3/README.md#s3-canned-acl–deep-dive)
+    - [Bucket Policy – Restrict Public IP Address](./iam/s3/README.md#s3-bucket-policy–restrict-public-ip-address)
+    - [Bucket Policy – Restrict Public IP Address](./iam/s3/README.md#s3-bucket-policy–restrict-public-ip-address)
+    - [VPC Interface Endpoint for S3](./iam/s3/README.md#vpc-interface-endpoint-for-s3)
+    - [Regain Access to Locked S3 Buckets](./iam/s3/README.md#regain-access-to-locked-s3-buckets)
+    - [Access Points](./iam/s3/README.md#s3–access-points)
+    - [CORS in S3](./iam/s3/README.md#what-is-cors)
+  - [Cognito](./iam/cognito/README.md)
+    - [Cognito User Pools](./iam/cognito/README.md#cognito-user-pools-(cup)–user-features)
+    - [Cognito Identity Pools – IAM Roles](./iam/cognito/README.md#cognito-identity-pools–iam-roles)
+    - [Cognito User Pools vs Identity Pools](./iam/cognito/README.md#cognito-user-pools-vs-identity-pools)
+    - [Cognito User Pool Groups](./iam/cognito/README.md#cognito-user-pool-groups)
+
 
 ## Appendix
 
@@ -99,3 +118,5 @@ This is a personal notes capturing various various AWS resources which are helpf
     *Common Vulnerability Scoring System (CVSS)* – a way to produce a numerical score reflecting the severity of a vulnerability or a security flaws
 
     *Availability Zones* - Each Region has multiple, isolated locations known as Availability Zones. The code for Availability Zone is its Region code followed by a letter identifier. For example, us-east-1a.
+
+    **[Troubleshooting]** - Information which might be useful when we run into errors and issues.

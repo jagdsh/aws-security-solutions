@@ -1,10 +1,12 @@
 # AWS EC2 Instance Metadata Service (IMDS)
 
 - Information about an EC2 instance (e.g., hostname, instance type, network settings, …)
-- Can be accessed from within the EC2 instance itself by making a request to the EC2 metadata service endpoint http://169.254.169.254/latest/meta-data
+- Can be accessed from within the EC2 instance itself by making a request to the EC2 metadata service [endpoint](http://169.254.169.254/latest/meta-data)
 - Can be accessed using EC2 API or CLI tools (e.g., curl or wget)
 - Metadata is stored in key-value pairs
 - Useful for automating tasks such as setting up an instance's hostname, configuring networking, or installing software
+
+![IMDS](./imds.png)
 
 ## AWS EC2 Instance Metadata - Example
 
@@ -18,12 +20,16 @@
 
 ![AWS EC2 Instance Metadata](./ec2_role.png)
 
+- This is how the EC2 instance gets credentials to perform the actions on AWS resources.
+
 ## EC2 Instance Metadata – Restrict Access
 
 - You can use local firewall rules to disable access for some or all processes
   - iptables for Linux, PF or IPFW for FreeBSD
 
-  $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache -jump REJECT
+```bash
+$ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache -jump REJECT
+```
 
 - Turn off access using AWS Console or AWS CLI (HttpEndpoint=disabled)
 
@@ -31,18 +37,19 @@
 
 ## IMDSv2 vs. IMDSv1
 
-- IMDSv1 is accessing http://169.254.169.254/latest/meta-data directly
+- IMDSv1 is [accessing](http://169.254.169.254/latest/meta-data) directly
 - IMDSv2 is more secure and is done in two steps:
+
   1. Get Session Token (limited validity) – using headers & PUT
 
 ```bash
-    $TOKEN= curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"'
+$TOKEN= curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"'
 ```
 
   2. Use Session Token in IMDSv2 calls – using headers
 
 ```bash
-        curl http://169.254.169.254/latest/meta-data/profile -H "X-aws-ec2-metadata-token: $TOKEN"
+curl http://169.254.169.254/latest/meta-data/profile -H "X-aws-ec2-metadata-token: $TOKEN"
 ```
 
 ## Requiring the usage of IMDSv2

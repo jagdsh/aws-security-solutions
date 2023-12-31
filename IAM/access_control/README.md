@@ -5,8 +5,15 @@
 - Defines fine-grained permissions based on user attributes
 - Example: department, job role, team name,
 - Instead of creating IAM roles for every team, use ABAC to group attributes to identify which resources a set of users can access
-- Allow operations when the principal’s tags matches the resource tag
+- How do we do it? === Allow operations when the principal’s tags matches the resource tag
 - Helpful in rapidly-growing environments
+  - Since you can add the resources and tag them and need not worry about IAM policies
+
+![ABAC](./abac_permissions.png)
+
+## ABAC - Example
+
+![ABAC Policy](./abac_policy.png)
 
 ## ABAC vs. RBAC
 
@@ -40,7 +47,7 @@
 
 - MFA (Multi-Factor Authentication) – force users to generate a code on a device (usually a mobile phone or hardware) before doing important operations on S3
 - MFA will be required to:
-  - Permanently delete an object version
+  - Permanently delete an object version - For destruction activity
   - Suspend Versioning on the bucket
 - MFA won’t be required to:
   - Enable Versioning
@@ -57,9 +64,10 @@
 ![MultiFactorAuthPresent](./mfa_iam_conditions.png)
 
 ![MultiFactorAuthPresent](./mfa_iam_conditions_numeric_less.png)
+
 Grants access only if the user authenticated with MFA within the last 300 seconds
 
-### Not Authorized to Perform iam:DeleteVirtualMFADevice
+### Not Authorized to Perform iam:DeleteVirtualMFADevice **[Troubleshooting]**
 
 - This error happens even the user has the correct IAM permissions
 - This happens if someone began assigning a virtual MFA device to a user and then cancelled the process
@@ -73,13 +81,15 @@ Grants access only if the user authenticated with MFA within the last 300 second
 - IAM users and the status of their passwords, access keys, and MFA devices
 - Download using IAM Console, AWS API, AWS CLI, or AWS SDK
 - Helps in auditing and compliance
-- Generated as often as once every 4 hours
+- Generated as often as once every 4 hours by using API call
 
 ![Report](./iam_credentials_report.png)
 
 ### Managing Aged Access Keys through AWS Config Remediations
 
 ![Aged Access Keys with Config](./managing_aws_config.png)
+
+- This is the better way to automate the key rotation than IAM Credentials report. **[Troubleshooting]**
 
 ## IAM Roles for Services
 
@@ -101,4 +111,5 @@ Grants access only if the user authenticated with MFA within the last 300 second
   - Review CloudTrail log that that created or modified the resource receiving the IAM role
 
 ![Delegate Permission](./iam_delegate_permissions.png)
-*Allow User to Pass Only Approved Roles*
+
+Allow User to Pass Only Approved Roles

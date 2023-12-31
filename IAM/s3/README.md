@@ -4,7 +4,7 @@
 
 - User Context
   - Is the IAM principal authorized by the parent AWS account (IAM policy) ?
-  - If the parent owns the bucket or object, then bucket policy/ACL or object ACL is evaluated
+  - If the parent owns the bucket or object, then bucket policy/ACL or object ACL is evaluated (ACL are deprecated).
   - If the parent owns the bucket/object, it can grant permissions to its IAM principals using Identity-Based Policy or Resource-Based Policy
 - Bucket Context
   - Evaluates the policies of the AWS account that owns the bucket (check for Explicit Deny)
@@ -22,6 +22,8 @@
 - S3 verifies that the parent AWS account has given Jill permission to perform the requested operation
 - S3 evaluates the bucket policy to determine if the bucket owner has explicitly denied Jill access to the object
 - S3 evaluates the object ACL to determine if Jill has permission to access the object
+  - Account 3 should have authorized to access the account 1
+  - If Account 2 (2222222222) and Account 3 (333333333) are same Object ACL is not needed. so only bucket policy is considered.
 
 ![Object Operation Request](./object_operation_request.png)
 
@@ -46,6 +48,13 @@
 ## IAM Policies and Resource-Based Bucket Policies
 
 ![Resource-Based Bucket policy](./resource_based_policy.png)
+
+Note: Account B (Bob) can’t access objects
+owned by Account A (Account B S3 Bucket)
+unless explicitly authorized by Account A
+
+- This is because there is a concept where the uploader will only have the access to the object when uploaded.
+-
 
 ## Object Permissions in Cross-Account Setting
 
@@ -118,24 +127,24 @@
 }
 ```
 
-## Sample Bucket Policies Force HTTPS In Flight
+## Sample Bucket Policies Force HTTPS In Flight **[Troubleshooting]**
 
 ```json
 {
-    "Version": "2012-10-17",
-"Statement": [
+  "Version": "2012-10-17",
+  "Statement": [
     {
-        "Effect": "Deny",
-"Principal": "*"
-"Action": "s3:GetObject"
-"Resource": "arn:aws: s3:::my-bucket/*",
-"Condition": {
-    "Bool": {
-        "aws: SecureTransport": "false"
-}
-}
-}
-]
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws: s3:::my-bucket/*",
+      "Condition": {
+        "Bool": {
+          "aws: SecureTransport": "false"
+        }
+      }
+    }
+  ]
 }
 ```
 
@@ -147,18 +156,20 @@
 
 ```json
 {
-"Version": "2012-10-17",
-"Statement": [
-"Effect": "Deny"
-"Principal": "*"
-"Action": "s3:*"
-"Resource": "arn:aws:s3:::my-bucket/*",
-"Condition": {
-"NotIpAddress": {
-"aws:SourceIp": ["11.11.11.11/24"']
-}
-}
-]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::my-bucket/*",
+      "Condition": {
+        "NotIpAddress": {
+          "aws:SourceIp": ["11.11.11.11/24"]
+        }
+      }
+    }
+  ]
 }
 ```
 
@@ -172,13 +183,13 @@
 
 ## VPC Gateway Endpoint for Amazon S3
 
-![VPC Gateway Endpoint](./vpc_gateway_endpoint.png)
-
 - No cost
 - Only accessed by resources in the VPC where it’s created
 - Make sure “DNS Support” is Enabled
 - Keep on using the public DNS of Amazon S3
 - Make sure Outbound rules of SG of EC2 instance allows traffic to S3
+
+![VPC Gateway Endpoint](./vpc_gateway_endpoint.png)
 
 ## VPC Interface Endpoint for S3
 
@@ -190,6 +201,8 @@
 - No “Private DNS name” option for VPC Interface Endpoint for S3
 
 ![VPC Interface Endpoint](./vpc_interface_endpoint.png)
+
+- Using gateway endpoint wil only be accessed by resources in your VPC, not side to side VPN, VPC peering etc.
 
 ## Amazon S3 Security – VPC Endpoint Strategies
 
@@ -205,41 +218,31 @@
 
 ```json
 {
-"Effect": "Deny"
-"Action": "s3:*"
-"Principal": "*"
-"Resource": [
-"arn:aws: s3: ::my-bucket"
-"arn:aws: 53::: my-bucket/*"
-],
-1,
-"Condition": {
-"StringNotEquals": {
-"aws: SourceVpc": [
-"vpc-111bbb22"
-]
-}}}
+  "Effect": "Deny",
+  "Action": "s3:*",
+  "Principal": "*",
+  "Resource": ["arn:aws:s3:::my-bucket", "arn:aws:s3::: my-bucket/*"],
+  "Condition": {
+    "StringNotEquals": {
+      "aws:SourceVpc": ["vpc-111bbb22"]
+    }
+  }
+}
 ```
 
 - Restrict Access from Specific VPC Endpoints
 
 ```json
 {
-    "Effect": "Deny",
-"Action": "s3:*"
-"Principal": "*"
-"Resource": [
-"arn: aws: s3: ::my-bucket",
-"arn:aws: s3:::my-bucket/*"
-],
-"Condition": {
-"StringNotEquals": {
-"aws: SourceVpce": [
-"vpce-1111111"
-"vpce-2222222"
-]
-}
-}
+  "Effect": "Deny",
+  "Action": "s3:*",
+  "Principal": "*",
+  "Resource": ["arn: aws: s3: ::my-bucket", "arn:aws: s3:::my-bucket/*"],
+  "Condition": {
+    "StringNotEquals": {
+      "aws: SourceVpce": ["vpce-1111111", "vpce-2222222"]
+    }
+  }
 }
 ```
 
@@ -249,19 +252,15 @@
 
 ```json
 {
-"Effect": "Deny",
-"Action": "s3:*",
-"Principal": "*"
-"Resource": [
-"arn:aws: s3:::my-bucket",
-"arn:aws: s3:::my-bucket/*"
-], "Condition": {
-"NotIpAddress": {
-"aws:SourceIp": [
-"192.0.2.0/24",
-"203.0.113.0/24"
-]}
-}
+  "Effect": "Deny",
+  "Action": "s3:*",
+  "Principal": "*",
+  "Resource": ["arn:aws: s3:::my-bucket", "arn:aws: s3:::my-bucket/*"],
+  "Condition": {
+    "NotIpAddress": {
+      "aws:SourceIp": ["192.0.2.0/24", "203.0.113.0/24"]
+    }
+  }
 }
 ```
 
@@ -269,41 +268,30 @@
 
 ```json
 {
-
-"Effect": "Deny",
-"Action": "s3:*",
-"Principal": "*",
-"Resource": [
-"arn:aws: s3:::my-bucket",
-"arn:aws: s3: ::my-bucket/*"
-],
-"Condition": {
-"NotIpAddress": {
-"aws:VpcSourceIp": [
-"10.1.1.1/32",
-"172.1.1.1/32"
-]
-}
-}
+  "Effect": "Deny",
+  "Action": "s3:*",
+  "Principal": "*",
+  "Resource": ["arn:aws: s3:::my-bucket", "arn:aws: s3: ::my-bucket/*"],
+  "Condition": {
+    "NotIpAddress": {
+      "aws:VpcSourceIp": ["10.1.1.1/32", "172.1.1.1/32"]
+    }
+  }
 }
 ```
 
 ## Regain Access to Locked S3 Buckets
 
-- If you incorrectly configured your S3 bucket policy to deny access to everyone (Deny s3:*, Principal:*)
+- If you incorrectly configured your S3 bucket policy to deny access to everyone (Deny s3:_, Principal:_)
 - You must delete the S3 bucket policy using the AWS account root user
 - Note: Deny statements in IAM policies do not affect the root account
 
 ```json
 {
-"Effect": "Deny",
-"Action": "s3:*"
-"Principal":
-"*"
-"Resource":[
-"arn:aws: s3:::my-bucket",
-"arn:aws: s3: ::my-bucket/*"
-]
+  "Effect": "Deny",
+  "Action": "s3:*",
+  "Principal": "*",
+  "Resource": ["arn:aws: s3:::my-bucket", "arn:aws: s3: ::my-bucket/*"]
 }
 ```
 
@@ -336,17 +324,19 @@
 
 ```json
 {
-    "Version": "2012-10-17",
-"Statement": [
+  "Version": "2012-10-17",
+  "Statement": [
     {
-        "Principal": "*",
-"Action": [
-    "s3:GetObject"],
-"Effect": "Allow",
-"Resource": [
-    "arn:aws: s3::: awsexamplebucket1/*",
-"arn:aws: s3:us-west-2:123456789012:accesspoint/example-vpc-ap/object/*"
-]}]}
+      "Principal": "*",
+      "Action": ["s3:GetObject"],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws: s3::: awsexamplebucket1/*",
+        "arn:aws: s3:us-west-2:123456789012:accesspoint/example-vpc-ap/object/*"
+      ]
+    }
+  ]
+}
 ```
 
 ## S3 – Multi-Region Access Points
@@ -380,10 +370,13 @@ Works with active/active or active/passive setups
 
 ![CORS](./cors.png)
 
-## Amazon S3 – CORS
+## Amazon S3 – CORS **[Troubleshooting]**
 
 - If a client makes a cross-origin request on our S3 bucket, we need to enable the correct CORS headers
 - It’s a popular exam question
-- You can allow for a specific origin or for * (all origins)
+- You can allow for a specific origin or for \* (all origins)
 
 ![S3 CORS](./cors_s3.png)
+
+
+![S3 CORS Example Index](../../sanple_codes/s3/index.html)

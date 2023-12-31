@@ -65,6 +65,8 @@
 
 ![Cognito Identity Pool](./cognito_identity_pool.png)
 
+- The user wants to access the S3 and DynamoDB but we don't want to create IAM Users.
+
 ## Cognito Identity Pools – Diagram with CUP
 
 ![Cognito Identity Pool CUP](./cognito_identity_pool_cup.png)
@@ -161,10 +163,6 @@
   - Users are mapped to IAM roles & policies, can leverage policy variables
 - CUP + CIP = manage user / password + access AWS services
 
-## Cognito Identity Pools – Diagram with CUP - Dupicate
-
-![Cognito Identity Pool CUP Diagram](./cognito_identitY_ppol_cup_diagram.png)
-
 ## Cognito Sync
 
 - Deprecated – use AWS AppSync now
@@ -179,10 +177,10 @@
 ## Cognito User Pool Groups
 
 - Collection of users in a logical group in Cognito User Pool
-• Defines the permissions for users in the group by assigning IAM role to the group
-• Users can be in multiple groups:
-• Assign precedence values to each group (lower will be chosen and its IAM role will be applied)
-• Choose from available IAM roles by specifing the IAM role ARN
-• You can’t create nested groups
+- Defines the permissions for users in the group by assigning IAM role to the group
+- Users can be in multiple groups:
+- Assign precedence values to each group (lower will be chosen and its IAM role will be applied)
+- Choose from available IAM roles by specifing the IAM role ARN
+- You can’t create nested groups
 
 ![Cognito User Pool Group](./cognito_user_pool_group.png)
