@@ -713,3 +713,117 @@ IAM assume Policy for for account B
 ```
 
 ![KMS Encrypted RDS](./kms_encrypted_rds.png)
+
+## Asymmetric Encryption
+
+- An encryption process that uses a pair of related keys (public & private) to encrypt and decrypt data
+- Public Key can be shared, Private Key must be kept secret
+- KMS supports 3 types of asymmetric KMS keys:
+  - RSA KMS Keys – encryption/decrytion or signing/verification
+  - Elliptic Curve (ECC) KMS Keys – signing and verification
+  - SM2 KMS Keys (China Regions only) – encryption/decrytion or signing/verification
+- Private Keys never leaves AWS KMS unencrypted
+
+![Asymmetric Encryption](./asymmetric_encryption.png)
+
+## Digital Signing with KMS Asymmetric
+
+- Helps you verify the integrity of messages or files sent across different systems
+- Verify that file has not been tampered with in transit
+- Public Key used to verify the signature while Private Key used in the signing process
+- Use cases: document e-signing, secure messaging, authentication/authorization tokens, trusted source code, e-commerce transactions
+
+![Digital Signing](./kms_asymmetric_digital_siging.png)
+
+### KMS API Calls Limits & Data Key Caching
+
+- When your application makes multiple API calls to KMS and you hit service limits (requests per second limit)…
+- Data Key Caching allows you to reuse data keys that protect your data
+- Instead of generating a new data key for each encryption operation
+- Reduce latency, improve throughput, reduce cost, stay within service limits, …
+- Implemented using AWS Encryption SDK
+- Note: encryption best practices discourages reuse of data keys (tradeoff cost / security)
+
+![KMS API Calls Limits](./kms_api_call_limits.png)
+
+### Changing The KMS Key For An Encrypted EBS Volume
+
+- You can’t change the encryption keys used by an EBS volume
+- Create an EBS snapshot and create a new EBS volume and specify the new KMS key
+
+![KMS Key Encrypted EBS](./kms_change_key_ebs.png)
+
+### Automate Cross-Account EBS KMS-Encrypted Snapshot Copies
+
+![Automate Cross-Account EBS](./kms_cross_account_ebs.png)
+
+### KMS Key Policy in Target Account
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["kms: RevokeGrant", "kms: CreateGrant", "kms:ListGrants"],
+      "Resource": [
+        "arn: aws: kms: us-east-1:111111111111: key/1234abcd-12ab-34cd-56ef-1234567890ab",
+        "arn:aws: kms:us-east-1:222222222222: key/4567dcba-23ab-34cd-56ef-0987654321yz"
+      ],
+      "Condition": {
+        "Bool": {
+          "kms: GrantIsForAWSResource": "true"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms: Encrypt",
+        "kms: Decrypt",
+        "kms :ReEncrypt*",
+        "kms: GenerateDataKey*",
+        "kms: DescribeKey"
+      ],
+      "Resource": [
+        "arn: aws: kms: us-east-1:111111111111: key/1234abcd-12ab-34cd-56ef-1234567890ab",
+        "arn: aws: kms:us-east-1:222222222222: key/4567dcba-23ab-34cd-56ef-0987654321yz"
+      ]
+    }
+  ]
+}
+```
+
+## EBS Encryption – Account level setting
+
+- New Amazon EBS volumes aren’t encrypted by default
+- There’s an account-level setting to encrypt automatically new EBS volumes and Snapshots
+- This setting needs to be enabled on a per-region basis
+
+![EBS Encryption Account setting](./kms_ebs_encryption.png)
+
+## Encrypt Un-encrypted EFS File System
+
+- You can’t encrypt an existing un-encrypted EFS File System
+- Create a new encrypted EFS File System and migrate the files using AWS DataSync
+
+![Encrypt EFS File System](./encrypt_efs_file_system.png)
+
+## ABAC with KMS
+
+- Control access to your KMS Keys based on tags and aliases
+
+![ABAC KMS](./kms_abac.png)
+
+## KMS with SSM Parameter Store
+
+- SSM Parameter Store uses KMS to encrypt/decrypt parameter values of type Secure String
+- Two types of Secure String Parameters:
+  - Standard – all parameters encrypted using the same KMS key
+  - Advanced – each parameter encrypted with a unique data key(Envelope Encryption)
+- Specify the KMS key or use AWS Managed Key (aws/ssm)
+- Works only with Symmetric KMS Keys
+- Encryption process takes place in AWS KMS
+- Note: you must have access to both the KMS key and the parameter in SSM Parameter Store
+
+![KMS SSM Parameter](./ssm_parameter_store.png)
