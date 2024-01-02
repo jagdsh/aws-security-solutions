@@ -101,7 +101,40 @@ This is a personal notes capturing various various AWS resources which are helpf
     - [Cognito Identity Pools – IAM Roles](./iam/cognito/README.md#cognito-identity-pools–iam-roles)
     - [Cognito User Pools vs Identity Pools](./iam/cognito/README.md#cognito-user-pools-vs-identity-pools)
     - [Cognito User Pool Groups](./iam/cognito/README.md#cognito-user-pool-groups)
+  - [Identity Federation](./iam/identity/README.md#identity-federation-in-aws)
+  - [IAM Identity Center](./iam/identity/README.md#aws-iam-identity-center)
+  - [Active Directory](./iam/active_directory/README.md#active-directory)
 
+### Data Protection
+
+- [Encryption](./data_protection/README.md#why-encryption?)
+- [CloudHSM](./cloudhsm/README.md#cloudhsm)
+- [AWS KMS](./kms/README.md#aws-kms-(key-management-service))
+  - [Key Material Origin](./kms/README.md#kms-key-material-origin)
+  - [Multi-Region Keys](./kms/README.md#kms-multi-region-keys)
+  - [Envelope Encryption](./kms/README.md#envelope-encryption)
+  - [KMS Symmetric – API Summary](./kms/README.md#kms-symmetric–api-summary)
+  - [Encryption SDK](./kms/README.md#encryption-sdk)
+  - [Key Rotation](./kms/README.md#key-rotation)
+  - [Asymmetric Encryption](./kms/README.md#asymmetric-encryption)
+  - [KMS with SSM Parameter Store](./kms/README.md#kms-with-ssm-parameter-store)
+- [Secrest Manager](./secrets_manager/README.md)
+  - [Secrets Manager – Secrets Rotation](./secrets_manager/README.md#secrets-manager–secrets-rotation)
+  - [KMS with Secrets Manager](./secrets_manager/README.md#kms-with-secrets-manager)
+  - [Secrets Manager – Resource Policy](./secrets_manager/README.md#secrets-manager–resource-policy)
+- [S3 Encryption](./s3/encryption/README.md#object-encryption)
+  - [S3 Encryption Summary](./s3/encryption/README.md#s3-encryption-for-objects-summary)
+  - [Default Encryption vs Bucket Policies](./s3/encryption/README.md#amazon-s3–default-encryption-vs.-bucket-policies)
+  - [S3 Bucket Key for SSE-KMS Encryption](./s3/encryption/README.md#s3-bucket-key-for-sse-kms-encryption)
+  - [S3 Batch – Object Encryption](./s3/encryption/README.md#s3-batch–object-encryption)
+- [S3 Glacier Vault Lock](./s3/README.md#s3-glacier-vault-lock)
+  - [Vault Lock Process](./s3/README.md#vault-lock-process)
+- [Moving between Storage Classes](./s3/README.md#moving-between-storage-classes)
+- [S3 Lifecycle Rules](./s3/README.md#lifecycle-rules)
+- [Replication (CRR & SRR)](./s3/README.md#replication-(crr-&-srr))
+- [Load Balancing](./load_balancing/README.md#load-balancing)
+  - [Network Load Balancer (v2)](./load_balancing/README.md#network-load-balancer-(v2))
+  - [Sticky Sessions (Session Affinity)](./load_balancing/README.md#sticky-sessions-(session-affinity))
 
 ## Appendix
 
@@ -120,3 +153,5 @@ This is a personal notes capturing various various AWS resources which are helpf
     *Availability Zones* - Each Region has multiple, isolated locations known as Availability Zones. The code for Availability Zone is its Region code followed by a letter identifier. For example, us-east-1a.
 
     **[Troubleshooting]** - Information which might be useful when we run into errors and issues.
+
+    **[CMK]** - The CMK contains the key material used to encrypt and decrypt data.

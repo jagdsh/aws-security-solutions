@@ -4,7 +4,7 @@
 
 ![Load Balancing](./load_balancing.png)
 
-## Why use a load balancer?
+## Why use a Elastic load balancer?
 
 - Spread load across multiple downstream instances
 - Expose a single point of access (DNS) to your application

@@ -27,7 +27,7 @@
 
 ## Types of KMS Keys
 
-- Customer Managed Keys
+- Customer Managed Keys (CMK)
   - Create, manage and use, can enable or disable
   - Possibility of rotation policy (new key generated every year, old key preserved)
   - Can add a Key Policy (resource policy) & audit in CloudTrail
@@ -60,7 +60,7 @@
 - Custom Key Store (AWS_CLOUDHSM)
   - AWS KMS creates the key material in a custom key store (CloudHSM Cluster)
 
-## KMS Key Source – Custom Key Store (CloudHSM)
+### KMS Key Source – Custom Key Store (CloudHSM)
 
 - Integrate KMS with CloudHSM cluster as a Custom Key Store
 - Key materials are stored in a CloudHSM cluster that you own and manage
@@ -73,7 +73,7 @@
 
 - At least 2 active HSMs
 
-## KMS Key Source - External
+### KMS Key Source - External
 
 - Import your own key material into KMS key, Bring Your Own Key (BYOK)
 - You’re responsible for key material’s security, availability, and durability outside of AWS
@@ -95,7 +95,7 @@
 
 ![KMS multi region keys](./kms_multi_region.png)
 
-## DynamoDB Global Tables and KMS Multi-Region Keys Client-Side encryption
+### DynamoDB Global Tables and KMS Multi-Region Keys Client-Side encryption
 
 - We can encrypt specific attributes client-side in our DynamoDB table using the Amazon DynamoDB Encryption Client
 - Combined with Global Tables, the client-side encrypted data is replicated to other regions
@@ -104,7 +104,7 @@
 
 ![KMS DynamoDB Global Tables](./kms_dynamodb_client_encryption.png)
 
-## Global Aurora and KMS Multi-Region Keys Client-Side encryption
+### Global Aurora and KMS Multi-Region Keys Client-Side encryption
 
 - We can encrypt specific attributes client-side in our Aurora table using the AWS Encryption SDK
 - Combined with Aurora Global Tables, the client-side encrypted data is replicated to other regions
@@ -122,7 +122,7 @@
 - KMS Encrypt API call has a limit of 4 KB
 - If you want to encrypt >4 KB, we need to use Envelope Encryption
 - The main API that will help us is the GenerateDataKey API
-- For the exam: anything over 4 KB of data that needs to be encrypted
+- **[Troubleshooting]**: anything over 4 KB of data that needs to be encrypted
   must use the Envelope Encryption == GenerateDataKey API
 
 ### Deep dive into Envelope Encryption GenerateDataKey API
@@ -145,14 +145,17 @@
 
 ## KMS Symmetric – API Summary
 
-- Encrypt: encrypt up to 4 KB of data through KMS
-- GenerateDataKey: generates a unique symmetric data key (DEK)
-- returns a plaintext copy of the data key
-- AND a copy that is encrypted under the CMK that you specify
-- GenerateDataKeyWithoutPlaintext:
-- Generate a DEK to use at some point (not immediately)
-- DEK that is encrypted under the CMK that you specify (must use Decrypt later)
-- Decrypt: decrypt up to 4 KB of data (including Data Encryption Keys)
+### **[Troubleshooting]**
+
+- **Encrypt**: encrypt up to 4 KB of data through KMS
+- **GenerateDataKey**: generates a unique symmetric data key (DEK)
+  - returns a plaintext copy of the data key
+  - AND a copy that is encrypted under the CMK that you specify
+  - To do envelope encryption right now, we need to use this API
+- **GenerateDataKeyWithoutPlaintext**:
+  - Generate a DEK to use at some point (not immediately)
+  - DEK that is encrypted under the CMK that you specify (must use Decrypt later)
+- **Decrypt**: decrypt up to 4 KB of data (including Data Encryption Keys)
 - GenerateRandom: Returns a random byte string
 
 ## Key Rotation
@@ -605,7 +608,7 @@ IAM Policy for Account B
 
 KMS Key Policy for account A
 
-```json
+````json
 {
   "Effect": "Allow",
   "Principal": {
@@ -616,18 +619,20 @@ KMS Key Policy for account A
       "kms: ReEncrypt*",
       "kms: GenerateDataKey*",
       "kms: DescribeKey",
+```
       "kms: CreateGrant",
       "kms :ListGrants",
       "kms: RevokeGrant"
+```
     ],
     "Resource": "*"
   }
 }
-```
+````
 
 IAM Policy for account B
 
-```json
+````json
 {
   "Effect": "Allow",
   "Action": [
@@ -636,13 +641,17 @@ IAM Policy for account B
     "kms :ReEncrypt*",
     "kms: GenerateDataKey*",
     "kms: DescribeKey",
+```
     "kms: CreateGrant",
     "kms:ListGrants",
     "kms: RevokeGrant"
+```
   ],
   "Resource": "arn: aws: kms: us-west-2:111122223333: key/1234abcd-12ab-34cd-56e f-1234567890ab AM Policy"
 }
-```
+````
+
+- We need the higlighted grants because it allows to list and create grant for the EBS in the background
 
 ![Cross Account Access external keys](./kms_cross_account_external_keys.png)
 

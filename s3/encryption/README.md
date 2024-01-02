@@ -70,7 +70,7 @@
 - HTTPS is mandatory for SSE-C
 - Most clients would use the HTTPS endpoint by default
 
-### S3 Encryption for Objects
+## S3 Encryption for Objects - Summary
 
 - SSE-S3: encrypts S3 objects using keys handled & managed by AWS
 - SSE-KMS: leverage KMS to manage encryption keys
@@ -225,7 +225,7 @@
 
 ![Bucket Key SSE KMS](./bucket_key_sse_kms.png)
 
-## Large File Upload to S3 with KMS Key
+## Large File Upload to S3 with KMS Key **[Troubleshooting]**
 
 - When uploading a large file to S3 with KMS encryption, you’ll have to use S3 multi-part upload
 - You must have the following permissions to the KMS Key:

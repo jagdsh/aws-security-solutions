@@ -15,7 +15,7 @@
 
 ![Identity Federation AWS](./identity_federation_aws.png)
 
-## SAML 2.0 Federation
+### SAML 2.0 Federation
 
 - Security Assertion Markup Language 2.0 (SAML 2.0)
 - Open standard used by many identity providers (e.g., ADFS)
@@ -24,11 +24,11 @@
 - Access to AWS Console, AWS CLI, or AWS API using temporary credentials
   - No need to create IAM Users for each of your employees
   - Need to setup a trust between AWS IAM and SAML 2.0 Identity Provider (both ways)
-- Under-the-hood: Uses the STS API AssumeRoleWithSAML
+- Under-the-hood: Uses the STS API **AssumeRoleWithSAML**
 - SAML 2.0 Federation is the “old way”, Amazon Single Sign-On (AWS SSO) Federation is the new managed and simpler way
   - [SAML 2.0 Federation](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
 
-## SAML 2.0 Federation – AWS API Access
+### SAML 2.0 Federation – AWS API Access
 
 ![SAML 2.0 Federation AWS API Access](./saml_federation_api_access.png)
 
@@ -84,43 +84,46 @@
     {
       "Effect": "Allow",
       "Action": "33:ListBucket",
-      "Resource": "arn:aws:s3::: nyBucket",
+      "Resource": "arn:aws:s3::: myBucket",
       "Condition": {
         "StringLike": {
-          "s3: prefix": "Anazon/mynumbersgane/S(www.amazon.com:user_1d}/*"
+          "s3: prefix": "Amazon/mynumbersgane/S(www.amazon.com:user_1d}/*"
         }
       }
     },
     {
       "Effect": "Allow",
-      "Action": ["53:Getobject", "33: Putobject", "53: DeleteObject"],
+      "Action": ["S3:Getobject", "S3: Putobject", "S3: DeleteObject"],
       "Resource": [
-        "arn:aws:53: ::myBucket/anazon/mynunbersgane/$(www.anazon.consuser_id)",
-        "arn:aws: 53:::myBucket/anazon/mynunbersgane/S(www.amazon.con:user_id}/**"
+        "arn:aws:53: ::myBucket/amazon/mynunbersgane/$(www.anazon.consuser_id)",
+        "arn:aws: 53:::myBucket/amazon/mynunbersgane/S(www.amazon.con:user_id}/**"
       ]
     }
   ]
 }
 ```
 
-## Configuring SAML 2.0-based Federation
+### Configuring SAML 2.0-based Federation
 
 ![SAML Federation Configuration](./saml_federation_configuration.png)
 
-## Example SAML 2.0 IdP Metadata (XML) File
+### Example SAML 2.0 IdP Metadata (XML) File
 
 ![SAML IDP XML File](./saml_idp_xml.png)
 
-## SAML 2.0 Federation – Troubleshooting
+### SAML 2.0 Federation – **[Troubleshooting]**
 
 - Error : Response signature invalid (service: AWSSecurityTokenService; status code: 400; error code: InvalidIdentityToken)
 - Reason: federation metadata of the identity provider does NOT match the metadata of the IAM identity provider
   - Example: metadata file might have changed to update an expired certificate
 - Resolution:
   - Download the updated SAML 2.0 metadata file from the identity provider
-  - Update in the IAM identity provider using AWS CLI aws iam update-saml-provider
+  - Update in the IAM identity provider using AWS CLI 
+  `aws iam update-saml-provider`
 
-## AWS IAM Identity Center (successor to AWS Single Sign-On)
+## AWS IAM Identity Center
+
+### (successor to AWS Single Sign-On)
 
 - One login (single sign-on) for all your
   - AWS accounts in AWS Organizations
@@ -135,7 +138,7 @@
 
 ![AWS IAM Identity Center](./aws_iam_identity_center_login.png)
 
-## AWS IAM Identity Center
+## AWS IAM Identity Center Integration
 
 ![AWS IAM Identity Center](./aws_iam_identity_center.png)
 
@@ -149,11 +152,11 @@
   - Manage access across AWS accounts in your AWS Organization
   - Permission Sets – a collection of one or more IAM Policies assigned to users and groups to define AWS access
 - Application Assignments
-  - SSO access to many SAML 2.0 business applications (Salesforce, Box, Microsoft 365, …)
+  - SSO access to many SAML 2.0 business applications (Salesforce, Box, Microsoft 365,)
   - Provide required URLs, certificates, and metadata
 - Attribute-Based Access Control (ABAC)
   - Fine-grained permissions based on users’ attributes stored in IAM Identity Center Identity Store
-  - Example: cost center, title, locale, …
+  - Example: cost center, title, locale,
   - Use case: Define permissions once, then modify AWS access by changing the attributes
 
 ![IAM Identity Center Permissions and Assignments](./iam_identity_center_permissions_assignment.png)
