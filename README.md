@@ -135,6 +135,11 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Load Balancing](./load_balancing/README.md#load-balancing)
   - [Network Load Balancer (v2)](./load_balancing/README.md#network-load-balancer-(v2))
   - [Sticky Sessions (Session Affinity)](./load_balancing/README.md#sticky-sessions-(session-affinity))
+  - [SSL/TLS - Basics](./load_balancing/README.md#ssl/tls-basics)
+  - [Elastic Load Balancer](./load_balancing/README.md#elastic-load-balancer)
+    - [### SSL – Server Name Indication (SNI)](./load_balancing/README.md#elastic-load-balancer)
+    - [HTTPS/SSL Listener – Security Policy](./load_balancing/README.md#https/ssl-listener–security-policy)
+    - [NLB - SSL/TLS & HTTPS](./load_balancing/README.md#nlb-ssl/tls-&-https)
 
 ## Appendix
 

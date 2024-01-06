@@ -173,8 +173,9 @@ ${\color{orange}Outbound:}$
 - TLS refers to Transport Layer Security, which is a newer version
 - Nowadays, TLS certificates are mainly used, but people still refer as SSL
 - Public SSL certificates are issued by Certificate Authorities (CA)
-- Comodo, Symantec, GoDaddy, GlobalSign, DigiCert, Let’s Encrypt, …
+- Comodo, Symantec, GoDaddy, GlobalSign, DigiCert, Let’s Encrypt, etc
 - SSL certificates have an expiration date (you set) and must be renewed
+  - Attaching these certificates to load balancer, makes sure that the connections are encrypted when clients access the application
 
 ## Elastic Load Balancer
 
@@ -208,11 +209,17 @@ ${\color{orange}Outbound:}$
 - SNI solves the problem of loading multiple SSL certificates onto one web server (to serve multiple websites)
 - It’s a “newer” protocol, and requires the client to indicate the hostname of the target hostname in the initial SSL handshake
 - The server will then find the correct certificate, or return the default one
-- Only works for ALB & NLB
+
+Note:
+
+- Only works for ALB & NLB (newer generation), Cloudfront
+- Does not work for CLB (older gen)
 
 ![SSL SNI](./ssl_sni.png)
 
 ### HTTPS/SSL Listener – Security Policy
+
+**[Troubleshooting]**
 
 - A combination of SSL protocols, SSL ciphers, and Server Order Preference
 option supported during SSL negotiations
