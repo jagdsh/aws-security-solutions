@@ -42,7 +42,7 @@ the server must have access to it
   - AWS Storage Gateway (Volume Gateway)
 - Supports cross-region backups
 - Supports cross-account backups
-- Supports PITR for supported services
+- Supports Point In Time Recovery (PITR) for supported services
 - On-Demand and Scheduled backups
 - Tag-based backup policies
 - You create backup policies known as Backup Plans

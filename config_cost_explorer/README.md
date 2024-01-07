@@ -1,6 +1,6 @@
 # Config & Cost Explorer
 
-## Config
+## AWS Config
 
 - Helps with auditing and recording compliance of your AWS resources
 - Helps record configurations and changes over time

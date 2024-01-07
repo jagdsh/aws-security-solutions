@@ -160,5 +160,3 @@
 - Elective
   - Commonly used by enterprises (optional)
   - Example: Disallow delete actions without MFA in S3 buckets
-
-  

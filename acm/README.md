@@ -8,13 +8,13 @@ integrations:
   - Load Balancers (including the ones created by EB)
   - CloudFront distributions
   - APIs on API Gateways
-- SSL certificates is overall a pain to manually
-manage, so ACM is great to leverage in your
-AWS infrastructure!
+- SSL certificates is overall a pain to manually manage, so ACM is great to leverage in your AWS infrastructure!
 
 ![ACM](./acm.png)
 
 ## ACM – Good to know
+
+**[Troubleshooting]**:
 
 - Possibility of creating public certificates
   - Must verify public DNS
@@ -26,9 +26,13 @@ AWS infrastructure!
 - Certificate renewal:
   - Automatically done if generated provisioned by ACM
   - Any manually uploaded certificates must be renewed manually and re-uploaded
+
+**[Troubleshooting]**:
+
 - ACM is a regional service
   - To use with a global application (multiple ALB for example), you need to issue an SSL certificate in each region where you application is deployed.
   - You cannot copy certs across regions
+  - Since cloudfront is global application, so each region is not needed
 
 ## AWS Private Certificate Authority (CA)
 
@@ -50,7 +54,7 @@ service that is integrated with ACM
 that you own/control the domain
 - DNS Validation (recommended)
   - Leverages a CNAME record created in DNS config (e.g.,
-Route 53)
+Route 53) - ensures TLS certificate.
   - Preferred for automatic renewal purposes
   - Takes a few minutes to verify
 - Email Validation
@@ -68,6 +72,8 @@ certificates or certificates signed by a Private CA
 
 ### Automatic Renewal
 
+**[Troubleshooting]**:
+
 - ACM Fails to Renew a DNS Validated Certificate
   - Most likely due to missing or inaccurate CNAME records in your DNS config.
   - You can try Email Validation (requires action by the Domain owner)
@@ -83,14 +89,18 @@ certificates or certificates signed by a Private CA
 - Resolution:
   - Confirm CNAME record is added to the correct DNS config.
   - Confirm CNAME record in your DNS config. contains no additional characters or has no missing characters
+
+```bash
+$ dia +short _a79865eb4cd1a6ab990a45779b4e0b96.example.com.
+```
+
   - If your DNS Provider automatically adds the bare domain to the end of its DNS records, remove the bare domain from the DNS record name
   - _a79865eb4cd1a6ab990a45779b4e0b96.example.com.example.com
   - If there’re both CNAME and TXT records for the same domain name, then delete the TXT record
 
 ```bash
 $ dia +short CNAME a79865eb4cd1a6ab990a45779b4e0b96.example.com.
-
-$ dig TXT _a79865eb4cd1a6ab990a45779b4e0b96. example.com.
+$ dig TXT _a79865eb4cd1a6ab990a45779b4e0b96.example.com.
 ```
 
 ## Process to Manually Create a Certificate
@@ -107,4 +117,3 @@ $ dig TXT _a79865eb4cd1a6ab990a45779b4e0b96. example.com.
 - AWS Config has a managed rule named acm-certificate-expiration-check to check for expiring certificates (configurable number of days) 
 
 ![Monitor Imported Certificates](./acm_monitor_cert.png)
-

@@ -140,6 +140,31 @@ This is a personal notes capturing various various AWS resources which are helpf
     - [### SSL – Server Name Indication (SNI)](./load_balancing/README.md#elastic-load-balancer)
     - [HTTPS/SSL Listener – Security Policy](./load_balancing/README.md#https/ssl-listener–security-policy)
     - [NLB - SSL/TLS & HTTPS](./load_balancing/README.md#nlb-ssl/tls-&-https)
+- [AWS Certificate Manager (ACM)](./acm/README.md#aws-certificate-manager-(acm))
+  - [ACM – Good to know](./acm/README.md#acm–good-to-know)
+  - [AWS Private Certificate Authority (CA)](./acm/README.md#aws-private-certificate-authority-(ca))
+  - [Validation Techniques](./acm/README.md#validation-techniques)
+  - [Process to Manually Create a Certificate](./acm/README.md#process-to-manually-create-a-certificate)
+  - [Monitor Expired Imported Certificates](./acm/README.md#monitor-expired-imported-certificates)
+- [AWS Backup](./data_protection/README.md#aws-backup)
+  - [Vault Lock](./data_protection/README.md#vault-lock)
+- [Amazon Data Lifecycle Manager](./data_protection/README.md#amazon-data-lifecycle-manager)
+- [Nitro Enclaves](./data_protection/README.md#nitro-enclaves)
+
+### Management and Security Governance
+
+- [AWS Organizations](./organizations_and_accout_tower/README.md#aws-organizations)
+  - [SCP Hierarchy](./organizations_and_accout_tower/README.md#scp-hierarchy)
+  - [SCP Examples Blocklist and Allowlist strategies](./organizations_and_accout_tower/README.md#scp-examples-blocklist-and-allowlist-strategies)
+  - [Reserved Instances](./organizations_and_accout_tower/README.md#reserved-instances)
+  - [IAM Policies](./organizations_and_accout_tower/README.md#iam-policies)
+  - [Tag Policies](./organizations_and_accout_tower/README.md#tag-policies)
+- [AWS Control Tower](./organizations_and_accout_tower/README.md#aws-control-tower)
+  - [Account Factory](./organizations_and_accout_tower/README.md#account-factory)
+  - [Detect and Remediate Policy Violations](./organizations_and_accout_tower/README.md#detect-and-remediate-policy-violations)
+  - [Guardrails Levels](./organizations_and_accout_tower/README.md#guardrails-levels)
+- [AWS Config](./config_cost_explorer/README.md#aws-config)
+
 
 ## Appendix
 
