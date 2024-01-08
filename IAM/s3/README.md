@@ -379,4 +379,4 @@ Works with active/active or active/passive setups
 ![S3 CORS](./cors_s3.png)
 
 
-![S3 CORS Example Index](../../sanple_codes/s3/index.html)
+![S3 CORS Example Index](../../sample_codes/s3/index.html)

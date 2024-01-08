@@ -26,7 +26,8 @@
   - Leverage the documentation
 - Supports (almost) all AWS resources:
   - Everything we’ll see in this course is supported
-  - You can use “custom resources” for resources that are not supported
+  - You can use "custom resources" for resources that are not supported
+- The template can reused for multiple regions, accounts with Infrastructure as Code (IaC).
 
 ## CloudFormation Stack Designer
 
@@ -34,7 +35,16 @@
 - We can see all the resources
 - We can see the relations between the components
 
+View Designer:
 ![Stack Designer](./stack_designer.png)
+
+- Estimate cost
+- Change set preview
+- Status
+  - CREATE_IN_PROGRESS
+  - CREATE_IN_PROGRESS
+  - CREATE_COMPELETE
+  - UPDATE_COMPELETE
 
 ## CloudFormation Drift
 
@@ -47,7 +57,32 @@
 ## Termination Protection on Stacks
 
 - To prevent accidental deletes of CloudFormation templates, use TerminationProtection
-- Let’s see this quickly!
+
+## Stack Policies
+
+- Stack policies can help prevent stack resources from being unintentionally updated or deleted during a stack update. A stack policy is a JSON document that defines the update actions that can be performed on designated resources.
+
+- By default, any IAM principal with `cloudformation:UpdateStack` permissions can update all of the resources in an AWS CloudFormation stack.
+
+- Updates can cause interruptions, or they can completely delete and replace resources. You can use a stack policy to help configure least-privilege permissions.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["cloudformation:SetStackPolicy"],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "cloudformation:StackPolicyUrl": "<Bucket URL>/<Team folder>/*"
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Dynamic References
 
@@ -118,20 +153,20 @@ Properties {
 
 rules.guard
 
-````yaml
+```yaml
 Properties:
   BucketEncryption:
     ServerSideEncryptionConfiguration:
       - ServerSideEncryptionByDefault:
           SSEAlgorithm: AES256
-````
+```
 
-  template.yaml
+template.yaml
 
 ## AWS Service Catalog
 
 - Users that are new to AWS have too many options, and may create
-stacks that are not compliant / in line with the rest of the organization
+  stacks that are not compliant / in line with the rest of the organization
 - Some users just want a quick self-service portal to launch a set of authorized products pre-defined by admins
 - Includes: virtual machines, databases, storage options, etc…
 - Enter AWS Service Catalog!

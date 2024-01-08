@@ -164,6 +164,22 @@ This is a personal notes capturing various various AWS resources which are helpf
   - [Detect and Remediate Policy Violations](./organizations_and_accout_tower/README.md#detect-and-remediate-policy-violations)
   - [Guardrails Levels](./organizations_and_accout_tower/README.md#guardrails-levels)
 - [AWS Config](./config_cost_explorer/README.md#aws-config)
+  - [Config Rules](./config_cost_explorer/README.md#config-rules)
+  - [Config Resource](./config_cost_explorer/README.md#config-resource)
+  - [Remediations](./config_cost_explorer/README.md#remediations)
+  - [Use Cases](./config_cost_explorer/README.md#use-cases)
+- [Trusted Advisor](./config_cost_explorer/README.md#trusted-advisor)
+- [Cost Explorer](./config_cost_explorer/README.md#cost-explorer)
+  - [AWS Cost Anomaly Detection](./config_cost_explorer/README.md#aws-cost-anomaly-detection)
+  - [Well Architected Framework General Guiding Principles](./config_cost_explorer/README.md#well-architected-framework-general-guiding-principles)
+  - [AWS Audit Manager](./config_cost_explorer/README.md#aws-audit-manager)
+- [Cloud Formation](./cloudformation/README.md)
+  - [Benefits of AWS CloudFormation](./cloudformation/README.md#benefits-of-aws-cloudformation)
+  - [CloudFormation Stack Designer](./cloudformation/README.md#cloudformation-stack-designer)
+  - [Termination Protection on Stacks](./cloudformation/README.md#termination-protection-on-stacks)
+  - [Stack Policies](./cloudformation/README.md#stack-policies)
+  - [Dynamic References](./cloudformation/README.md#dynamic-references)
+
 
 
 ## Appendix

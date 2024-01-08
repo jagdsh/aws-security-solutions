@@ -19,7 +19,7 @@ Type of APIs:
   - Public
   - Private
 
-[Lambda Code](../sanple_codes/api-gateway/lambda-code.py)
+[Lambda Code](../sample_codes/api-gateway/lambda-code.py)
 
 ## Integrations High Level
 

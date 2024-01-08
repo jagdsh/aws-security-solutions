@@ -41,7 +41,7 @@
 - Then the Data Source -> Create a database using the following sample query 
 
 ![S3 Access logs Athena](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-s3-access-logs-to-identify-requests.html)
-![S3 Access logs Athena](../sanple_codes/s3-advanced/athena-s3-access-logs.sql)
+![S3 Access logs Athena](../sample_codes/s3-advanced/athena-s3-access-logs.sql)
 
 ## Troubleshooting
 

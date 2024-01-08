@@ -19,6 +19,7 @@
 - Can make custom config rules (must be defined in AWS Lambda)
   - Ex: evaluate if each EBS disk is of type gp2
   - Ex: evaluate if each EC2 instance is t2.micro
+- Can be created after creating the **AWS config**
 - Rules can be evaluated / triggered:
   - For each config change
   - And / or: at regular time intervals
@@ -55,6 +56,8 @@
 
 ### Aggregators
 
+**[Troubleshooting]**:
+
 ![Config Aggregators](./config_aggregators.png)
 
 - The aggregator is created in one central aggregator account
@@ -80,12 +83,17 @@
 ## Trusted Advisor
 
 - No need to install anything – high level AWS account assessment
-- Analyze your AWS accounts and provides recommendation on 5 categories
+- Analyze your AWS accounts and provides recommendation on 6 categories
 - Cost optimization
 - Performance
 - Security
 - Fault tolerance
 - Service limits
+- Operational Excellence
+
+- Business & Enterprise support plan:
+  - Full Set of Checks
+  - programmatic Access using AWS Support API
 
 ![Trusted Advisor](./trusted_advisor.png)
 
@@ -130,7 +138,7 @@
 
 ![Cost Explorer Forecast](./cost_explorer_forecast.png)
 
-## AWS Cost Anomaly Detection
+### AWS Cost Anomaly Detection
 
 - Continuously monitor your cost and usage using ML to detect unusual spends
 - It learns your unique, historic spend patterns to detect one-time cost spike and/or continuous cost increases (you don’t need to define thresholds)
@@ -142,8 +150,9 @@
 
 ## Well Architected Framework General Guiding Principles
 
-- [Well Architected](https://aws.amazon.com/architecture/well-architected)
-- Stop guessing your capacity needs
+- It is a tool and service in AWS which helps to create good application in AWS
+- It provides bets practices and then we go to outcomes
+- Stop guessing your capacity needs - Use Auto Scaling Group (ASG)
 - Test systems at production scale
 - Automate to make architectural experimentation easier
 - Allow for evolutionary architectures
@@ -151,6 +160,8 @@
 - Drive architectures using data
 - Improve through game days
   - Simulate applications for flash sale days
+
+- [Well Architected](https://aws.amazon.com/architecture/well-architected)
 
 ### Well Architected Framework 6 Pillars
 

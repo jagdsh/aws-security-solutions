@@ -33,10 +33,9 @@ WITH SERDEPROPERTIES (
          'serialization.format' = '1', 'input.regex' = '([^ ]*) ([^ ]*) \\[(.*?)\\] ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) \\\"([^ ]*) ([^ ]*) (- |[^ ]*)\\\" (-|[0-9]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) (\"[^\"]*\") ([^ ]*)(?: ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*))?.*$' )
 LOCATION 's3://target-bucket-name/prefix/';
 
-## Group by Example
+
 SELECT requesturi_operation, httpstatus, count(*) FROM "s3_access_logs_db"."mybucket_logs" 
 GROUP BY requesturi_operation, httpstatus;
 
-## Where condition Example
 SELECT * FROM "s3_access_logs_db"."mybucket_logs"
 where httpstatus='403';
