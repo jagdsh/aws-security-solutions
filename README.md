@@ -179,8 +179,40 @@ This is a personal notes capturing various various AWS resources which are helpf
   - [Termination Protection on Stacks](./cloudformation/README.md#termination-protection-on-stacks)
   - [Stack Policies](./cloudformation/README.md#stack-policies)
   - [Dynamic References](./cloudformation/README.md#dynamic-references)
-
-
+  - [CloudFormation Guard (cfn-guard)](./cloudformation/README.md#cloudformation-guard-(cfn-guard))
+- [AWS Service Catalog](./cloudformation/README.md#aws-service-catalog)
+- [Direct Connect (DX)](./direct_connect/README.md)
+  - [Direct Connect Diagram](./direct_connect/README.md#direct-connect-diagram)
+  - [Gateway](./direct_connect/README.md#gateway)
+  - [Encryption](./direct_connect/README.md#encryption)
+  - [Site-to-Site VPN connection as a backup](./direct_connect/README.md#site-to-site-vpn-connection-as-a-backup)
+- [Elastic Container Registry (ECR)](./ecr/README.md)
+  - [Elastic Container Registry (ECR) with KMS](./ecr/README.md#elastic-container-registry-(ecr)-with-kms)
+  - [ECR – Image Scanning](./ecr/README.md#ecr–image-scanning)
+  - [ECR – Cross-Account Access](./ecr/README.md#ecr–cross-account-access)
+  - [Amazon EKS – Logging](./ecr/README.md#amazon-eks–logging)
+- [Lambda](./lambda/README.md)
+  - [Execution Role (IAM Role)](./lambda/README.md#execution-role-(iam-role))
+  - [Lambda Resource Based Policies](./lambda/README.md#lambda-resource-based-policies)
+  - [Lambda by default](./lambda/README.md#lambda-by-default)
+  - [Lambda in VPC](./lambda/README.md#lambda-in-vpc)
+  - [Signer](./signer_and_verified_access/README.md#aws-signer)
+- [AWS Verified Access](./signer_and_verified_access/README.md#aws-verified-access)
+- [AWS Glue](./glue/README.md)
+  - [Convert data into Parquet format](./glue/README.md#convert-data-into-parquet-format)
+  - [Glue Data Catalog: catalog of datasets](./glue/README.md#glue-data-catalog:-catalog-of-datasets)
+  - [Things to know at a high-level](./glue/README.md#things-to-know-at-a-high-level)
+  - [Security](./glue/README.md#security)
+  - [Centralized Data Catalog](./glue/README.md#centralized-data-catalog)
+- [Amazon WorkSpaces](./other_services/README.md#amazon-workspaces)
+  - [Security IP Access Control Groups](./other_services/README.md#security-ip-access-control-groups)
+- [Auto Scaling](./other_services/README.md#auto-scaling)
+- [EBS Volumes – Data Wiping](./other_services/README.md#ebs-volumes–data-wiping)
+- [AWS CloudShell](./other_services/README.md#aws-cloudshell)
+- [RDS & Aurora Security](./other_services/README.md#rds-&-aurora-security)
+- [EC2 Image Builder](./other_services/README.md#ec2-image-builder)
+- [Amazon Redshift](./other_services/README.md#amazon-redshift)
+- [DynamoDB – Time To Live (TTL)](./other_services/README.md#dynamodb–time-to-live-(ttl))
 
 ## Appendix
 
@@ -201,3 +233,8 @@ This is a personal notes capturing various various AWS resources which are helpf
     **[Troubleshooting]** - Information which might be useful when we run into errors and issues.
 
     **[CMK]** - The CMK contains the key material used to encrypt and decrypt data.
+
+## Abbrivations
+
+- AMI: Amazon Machine Image
+

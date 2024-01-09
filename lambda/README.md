@@ -54,8 +54,9 @@
 ## Lambda in VPC
 
 - You must define the VPC ID, the Subnets and the Security Groups
-- Lambda will create an ENI (Elastic Network Interface) in your subnets
+- Lambda will create an ENI (Elastic Network Interface) in each your subnets
 - AWSLambdaVPCAccessExecutionRole
+- Network Interface (ENI) will create a Security Group (SG) for every AZ of the subnet in the VPC
 
 ![Lambda VPC](./lambda_vpc.png)
 

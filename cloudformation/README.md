@@ -133,7 +133,7 @@ Resources:
 - Example: ensure users always create encrypted S3 buckets
 - You define your own policies as code using a declarative Domain-Specific Language (DSL)
 - Provides a built-in testing framework to verify that your rules work as intended
-- Doesn’t validate CFN templates against syntax
+- Doesn’t validate Cloud Formation (CFN) templates against syntax
 - Can be used as part of CI/CD pipeline
 
 `cfn-guard validate -d template.yaml -r rules.guard --show-summary-pass`

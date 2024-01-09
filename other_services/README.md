@@ -50,6 +50,7 @@
 - Persistent storage with up to 1GB per AWS region
 - Runs on Amazon Linux 2
 - Can’t access resources in a VPC (EC2, RDS, …)
+  - for EC2 in VPC should use EC2 connect for connection
 
 ![Cloudshell](./cloud_shell.png)
 
@@ -122,8 +123,19 @@
   - Can own databases and database objects (e.g., tables)
   - Can grant permissions on those objects to other DB Users, Groups, and Schemas
   - User is granted permissions in two ways
-  - Explicitly, by having those permissions assigned directly to the account
-  - Implicitly, by being a member of a group that is granted permissions
+    - Explicitly, by having those permissions assigned directly to the account
+    - Implicitly, by being a member of a group that is granted permissions
+- Groups
+  - Collections of Users that can be collectively assigned permissions
+  - Good for streamlined security maintenance
+- Database
+  - Collection of one or more Schema
+  - When a User create a database, the User becomes its owner
+  - Superusers have the same permissions as database owners
+- Schema
+  - Collections of database tables and other database objects
+  - Used to group database objects under a common name
+  - Users can be granted access to a single schema or to multiple schemas
 
 ![Redshift Hierarchy](./redshift_database_hierarchy.png)
 

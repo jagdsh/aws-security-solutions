@@ -55,6 +55,8 @@ ${\color{yellow}Look at the *ACTION* field}$
 
 ## Traffic not captured
 
+**[Troubleshooting]**:
+
 - Traffic to Amazon DNS server (custom DNS server traffic is logged)
 - Traffic for Amazon Windows license activation
 - Traffic to and from 169.254.169.254 for EC2 instance metadata
