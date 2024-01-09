@@ -219,7 +219,7 @@ Note:
 
 ### HTTPS/SSL Listener – Security Policy
 
-**[Troubleshooting]**
+**[Troubleshooting]**:
 
 - A combination of SSL protocols, SSL ciphers, and Server Order Preference
 option supported during SSL negotiations
