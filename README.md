@@ -7,6 +7,13 @@ This is a personal notes capturing various various AWS resources which are helpf
 ### Threat Detection and Incident Response
 
 - [Guard Duty](./guard_duty/README.md)
+  - [Few points to remember](./guard_duty/README.md#few-points-to-remember)
+  - [Multi-Account Strategy](./guard_duty/README.md#multi-account-strategy)
+  - [Findings](./guard_duty/README.md#findings)
+  - [GuardDuty Architectures](./guard_duty/README.md#guardduty-architectures)
+  - [Trusted and Threat IPs](./guard_duty/README.md#trusted-and-threat-ips)
+  - [Supression Rules](./guard_duty/README.md#supression-rules)
+  - [Troubleshooting](./guard_duty/README.md#guardduty-didn’t-generate-any-finding-types)
 - [Security Hub](./security-hub/README.md)
 - [Amazon Detective](./detective/README.md)
 - [Security Testing](./security-testing/README.md)
@@ -36,7 +43,7 @@ This is a personal notes capturing various various AWS resources which are helpf
 
 ### Security Logging and Monitoring
 
-- [Amazon Inspector](./inspectod/README.md)
+- [Amazon Inspector](./inspector/README.md)
 - [CloudWatch](./cloudwatch/README.md)
 - [Athena](./athena/README.md)
 - [CloudTrail](./cloudtrail/README.md)
@@ -237,4 +244,6 @@ This is a personal notes capturing various various AWS resources which are helpf
 ## Abbrivations
 
 - AMI: Amazon Machine Image
-
+- ECR: Elastic Container Registory
+- ECS: Elastic Container Service
+- ENI: Elastic Network Interface
