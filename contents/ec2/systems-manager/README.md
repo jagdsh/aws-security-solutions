@@ -109,7 +109,7 @@
 - Send notifications to SNS about command statues (In progress, Success, Failed, …)
 - Can be invoked using EventBridge
 
-[Example Code](../../sample_codes/ssm/document-install-apache.yml)
+[Example Code](../../../codeSample/sample_codes/ssm/document-install-apache.yml)
 
 ![Reference](./ssm_run_command.png)
 
