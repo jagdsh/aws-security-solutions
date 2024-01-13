@@ -29,6 +29,25 @@ Find out which resources are shared externally
 - General warnings, security warnings, errors, suggestions
 - Provides actionable recommendations
 
+### IAM Best Practices
+
+- Lock away your AWS account root user access keys
+- Create individual IAM users
+- Use groups to assign permissions to IAM users
+- Grant least privilege
+- Get started using permissions with AWS managed policies
+- Use customer managed policies instead of inline policies
+- Use access levels to review IAM permissions
+- Configure a strong password policy for your users
+- Enable MFA
+- Use roles for applications that run on Amazon EC2 instances
+- Use roles to delegate permissions
+- Do not share access keys
+- Rotate credentials regularly
+- Remove unnecessary credentials
+- Use policy conditions for extra security
+- Monitor activity in your AWS accoun
+
 ### IAM Access Analyzer Policy Generation
 
 - Generates IAM policy based on access activity
@@ -39,6 +58,119 @@ Find out which resources are shared externally
 
 ## IAM Policies
 
+### Types of Policies
+
+- **Identity-based policies** – attached to users, groups, or roles
+- **Resource-based policies** – attached to a resource; define permissions for a principal accessing the resource
+- **IAM permissions boundaries** – set the maximum permissions an identity-based policy can grant an IAM entity
+- **AWS Organizations service control policies (SCP)** – specify the maximum permissions for an organization or OU
+- **Session policies** – used with AssumeRole* API actions
+
+### Steps for Authorizing Requests to AWS
+
+- Step 1: Authentication – AWS authenticates the principal that makes the request
+- Step 2: Processing the request context:
+  - Actions – the actions or operations the principal wants to perform
+  - Resources – The AWS resource object upon which actions are performed
+  - Principal – The user, role, federated user, or application that sent the request
+  - Environment data – Information about the IP address, user agent, SSL status, or time of day
+  - Resource data – Data related to the resource that is being requested
+- Step 3: Evaluating all policies within the account
+- Step 4: Determining whether a request is allowed or denied
+
+### Determination Rules
+
+- By default, all requests are implicitly denied (though the root user has full access)
+- An explicit allow in an identity-based or resource-based policy overrides this default
+- If a permissions boundary, Organizations SCP, or session policy is present, it might override the allow with an implicit deny
+- An explicit deny in any policy overrides any allows
+
+### Permisions Boundary Policy
+
+The policy will enforce the following:
+
+- IAM principals can't alter the permissions bo:undary to allow their own permissions to access restricted services
+- IAM principals must attach the permissions boundary to any IAM principals they create
+- IAM admins can't create IAM principals with more privileges than they already have
+- The IAM principals created by IAM admins can't create IAM principals with more permissions than IAM admins
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "IAMAccess",
+            "Effect": "Allow",
+            "Action": "iam:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "DenyPermBoundaryIAMPolicyAlteration",
+            "Effect": "Deny",
+            "Action": [
+                "iam:DeletePolicy",
+                "iam:DeletePolicyVersion",
+                "iam:CreatePolicyVersion",
+                "iam:SetDefaultPolicyVersion"
+            ],
+            "Resource": [
+                "arn:aws:iam::YourAccount_ID:policy/PermissionsBoundary"
+            ]
+        },
+        {
+            "Sid": "DenyRemovalOfPermBoundaryFromAnyUserOrRole",
+            "Effect": "Deny",
+            "Action": [
+                "iam:DeleteUserPermissionsBoundary",
+                "iam:DeleteRolePermissionsBoundary"
+            ],
+            "Resource": [
+                "arn:aws:iam::YourAccount_ID:user/*",
+                "arn:aws:iam::YourAccount_ID:role/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PermissionsBoundary": "arn:aws:iam::YourAccount_ID:policy/PermissionsBoundary"
+                }
+            }
+        },
+        {
+            "Sid": "DenyAccessIfRequiredPermBoundaryIsNotBeingApplied",
+            "Effect": "Deny",
+            "Action": [
+                "iam:PutUserPermissionsBoundary",
+                "iam:PutRolePermissionsBoundary"
+            ],
+            "Resource": [
+                "arn:aws:iam::YourAccount_ID:user/*",
+                "arn:aws:iam::YourAccount_ID:role/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "iam:PermissionsBoundary": "arn:aws:iam::YourAccount_ID:policy/PermissionsBoundary"
+                }
+            }
+        },
+        {
+            "Sid": "DenyUserAndRoleCreationWithOutPermBoundary",
+            "Effect": "Deny",
+            "Action": [
+                "iam:CreateUser",
+                "iam:CreateRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::YourAccount_ID:user/*",
+                "arn:aws:iam::YourAccount_ID:role/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "iam:PermissionsBoundary": "arn:aws:iam::YourAccount_ID:policy/PermissionsBoundary"
+                }
+            }
+        }
+    ]
+}
+```
 ### Structure
 
 ![Policy Structure](./iam_references/iam_policy_structure.png)
@@ -279,6 +411,7 @@ Can be used in combinations of AWS Organizations SCP
   - Allow a user/application to perform many actions in a different account
   - Permissions expire over time
 - Resource-based policies:
+  - Identified when there **Principal** key is present in the Policy Example
   - Used to control access to specific resources (resource-centric view)
   - Allow cross-account access
   - Permanent authorization (as long as it exists in the resource-based policy)
