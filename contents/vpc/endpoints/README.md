@@ -99,3 +99,33 @@
 ![API Gateway](./vpc_endpoint_eg_api_gateway.png)
 
 ![API Gateway Resource poolicy](./vpc_endpoint_eg_api_gateway_resource_policy.png)
+
+### Interface vs Gateway endpoint
+
+| | Interface Endpoint | Gateway endpoint |
+|----| ----|----|
+| What | Elastic Network Interface with a Private IP | A gateway that is a target for a specific route |
+| How | Uses DNS entries to redirect traffic | Uses prefix lists in the route table to redirect traffic |
+| Which services | API Gateway, CloudFormation, CloudWatch etc. | Amazon S3, DynamoDB |
+| Security | Security Groups | VPC Endpoint Policies |
+
+### Some AWS Services that Support PrivateLink
+
+- Amazon API Gateway
+- Amazon Athena
+- AWS Key Management Service
+- AWS CloudHSM
+- Amazon CloudWatch
+- Amazon CloudWatch Events
+- Amazon CloudWatch Logs
+- AWS Config
+- Amazon EventBridge
+- AWS Glue
+- AWS Lambda
+- Amazon S3
+- AWS Secrets Manager
+- Amazon SNS
+- Amazon SQS
+- AWS Step Functions
+- AWS Systems Manager
+- [Full list here](https://docs.aws.amazon.com/vpc/latest/privatelink/integrated-services-vpce-list.html)

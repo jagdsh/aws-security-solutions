@@ -8,6 +8,15 @@
   - I want a load balancer (ELB) in front of these machines
 - Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify
 
+## Glossary
+
+| Component | Description |
+| --------- | --------- |
+| Templates | The JSON or YAML text file that contains the instructions for building out the AWS environment |
+| Stacks | The entire environment described by the template and created, updated, and deleted as a single unit |
+| StackSets | AWS CloudFormation StackSets extends the functionality of stacks by enabling you to create, update, or delete stacks across multiple accounts and regions with a single operation |
+| Change Sets | A summary of proposed changes to your stack that will allow you to see how those changes might impact your existing resources before implementing them
+
 ## Benefits of AWS CloudFormation
 
 - Infrastructure as code
@@ -187,6 +196,17 @@ template.yaml
 - AWS Transit Gateway
 - Route53 Resolver Rules
 - License Manager Configurations
+
+### Sharing VPCs with AWS Organizations and RAM
+
+- VPCs sharing allows sharing of subnets with other accounts
+- Uses AWS Resource Access Manager (AWS RAM)
+- Integrates with AWS Organizations
+- RAM can be used to share many other resources including:
+- Transit gateways
+- AWS Network Firewalls firewalls • Amazon Route 53 Resolver rules • AWS Cloud WAN
+
+![VPC Sharing](./vpc_sharing.png)
 
 ### VPC example
 

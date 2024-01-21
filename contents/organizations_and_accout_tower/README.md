@@ -45,6 +45,8 @@
 
 ### SCP Examples Blocklist and Allowlist strategies
 
+- SCPs do not grant `ANY` permissions, they control the `AVAILABLE` permissions
+
 ```json
 {
   "Version": "2012-10-17",
@@ -130,6 +132,13 @@
   - Monitor compliance through an interactive dashboard
 - AWS Control Tower runs on top of AWS Organizations:
   - It automatically sets up AWS Organizations to organize accounts and implement SCPs (Service Control Policies)
+
+- Control Tower creates a well-architected multi- account baseline based on best practices
+- This is known as a landing zone
+- Guardrails are used for governance and compliance:
+  - Preventive guardrails are based on SCPs and disallow API actions
+  - Detective guardrails are implemented using AWS Config rules and Lambda functions and monitor and govern compliance
+- The root user in the management account can perform actions that guardrails would disallow
 
 ### Account Factory
 

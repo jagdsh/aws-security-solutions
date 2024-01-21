@@ -314,7 +314,7 @@ unless explicitly authorized by Account A
   - its own DNS name (Internet Origin or VPC Origin)
   - an access point policy (similar to bucket policy) – manage security at scale
 
-## S3 – Access Points – VPC Origin
+### S3 – Access Points – VPC Origin
 
 - We can define the access point to be accessible only from within the VPC
 - You must create a VPC Endpoint to access the Access Point (Gateway or Interface Endpoint)
@@ -339,7 +339,7 @@ unless explicitly authorized by Account A
 }
 ```
 
-## S3 – Multi-Region Access Points
+### S3 – Multi-Region Access Points
 
 - Provide a global endpoint that span S3 buckets in multiple AWS regions
 - Dynamically route requests to the nearest S3 bucket (lowest latency)
@@ -350,7 +350,7 @@ unless explicitly authorized by Account A
 
 ![Multi-Region Access Points Diagram](./access_point_multi_region_diagram.png)
 
-## Multi-Region Access Points – Failover Controls
+### Multi-Region Access Points – Failover Controls
 
 Active/Passive Failover Controls
 

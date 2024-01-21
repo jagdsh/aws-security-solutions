@@ -198,3 +198,12 @@
 - Run over multi-account via integration with AWS Organizations
 
 ![Audit Manager](./audit_manager.png)
+
+### Pre configured AWS
+
+| Example Rule | Description |
+| ------------ | ----------- |
+| s3-bucket-server-side-encryption-enabled | Checks that your Amazon S3 bucket either has S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption |
+| restricted-ssh | Checks whether security groups that are in use disallow unrestricted incoming SSH traffic |
+| rds-instance-public-access-check | Checks whether the Amazon Relational Database Service (RDS) instances are not publicly accessible
+| cloudtrail-enabled | Checks whether AWS CloudTrail is enabled in your AWS account

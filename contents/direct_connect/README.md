@@ -58,3 +58,9 @@ Maximum resilience is achieved by separate connections terminating on separate d
 
 - In case Direct Connect fails, you can set up a backup Direct Connect connection (expensive), or a Site-to-Site VPN connection
 
+### Virtual Interface (VIF)
+
+- A Private VIF connects to a single VPC in the same AWS Region using a VGW
+- A Public VIF can be used to connect to AWS Public services in any Region (but not the Internet)
+- A VIF is a virtual interface (802.1Q VLAN) and a BGP session
+

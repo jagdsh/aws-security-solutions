@@ -76,13 +76,17 @@
 
 ![VPC Peering](./visual-references/vpc_peering.png)
 
-- Privately connect two VPCs using AWS’ network
+- Privately connect two VPCs using AWS’ Global internal network
 - Make them behave as if they were in the same network
 - Must not have overlapping CIDRs
+- Uses only private IPs
 - VPC Peering connection is NOT transitive (must be established for each VPC that need to communicate with one another)
 - You must update route tables in each VPC’s subnets to ensure EC2 instances can communicate with each other
+- Route table has to be updated with VPC Peering ID
 
 ![VPC Peering](./visual-references/vpc_peering_flow_diagram.png)
+
+![VPC Update Route Table](./visual-references/vpc_peering_route_table.png)
 
 - You can create VPC Peering connection between VPCs in different AWS accounts/regions
 - You can reference a security group in a peered VPC (works cross accounts – same region)

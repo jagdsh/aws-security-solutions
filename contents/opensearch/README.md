@@ -53,3 +53,10 @@
 - Grant IAM role access on some methods to access the OpenSearch domain sub-resources
 
 ![OpenSearch Restricted Access](./opensearch_vpc_restricted_access_iam.png)
+
+#### Limitations of VPC deployments
+
+- You can’t switch from VPC to a public endpoint. The reverse is also true
+- You can’t launch your domain within a VPC that uses dedicated tenancy
+- After you place a domain within a VPC, you can’t move it to a different VPC,but you can change the subnets and security group settings
+- Cannot use IP-based access policies

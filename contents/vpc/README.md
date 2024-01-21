@@ -1,4 +1,4 @@
-## Network Access Analyzer
+# Network Access Analyzer
 
 - Helps you understand potential network paths to/from your resources
 - Define Network Access Requirements
@@ -9,3 +9,10 @@
 - Network Access Scope – json document contains conditions to define your network security policy (e.g., detect public databases)
 
 ![Network Access Analyzer](./network_analyzer.png)
+
+## Summary
+
+- Verify network access compliance.
+- Scopes define conditions for paths of interest, and can exclude compliant paths.
+- Analysis findings show paths of interest.
+- All NICs in a region are analyzed.

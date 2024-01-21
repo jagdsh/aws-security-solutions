@@ -62,6 +62,7 @@ This is a personal notes capturing various various AWS resources which are helpf
 - [Client VPN](./contents/infrastructure-and-security/README.md#client-vpn)
 - [VPC Peering](./contents/infrastructure-and-security/README.md#vpc-peering)
 - [VPC Endpoints](./contents/vpc/endpoints/README.md)
+  - [Diff VPC Endpoints](./contents/vpc/endpoints/README.md#interface-vs-gateway-endpoint)
 - [Private Link](./contents/vpc/private-link/README.md)
 - [Network Access Control List](./contents/security_groups_NACLs/README.md#network-access-control-list)
 - [Security Groups](./contents/security_groups_NACLs/README.md#security-group-vs.-nacls)

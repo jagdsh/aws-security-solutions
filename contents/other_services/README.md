@@ -167,6 +167,13 @@
 - To create a read-only user, add a user to a group that only has read-only privileges to the specified Schemas for a database
   - Note that you will still have to initially manually specify all of the schema names & then subsequently modify the group for any new schemas that you may create
 
+### Deploy in VPC
+
+- Must create a cluster subnet group and provide VPC ID and a list of subnets in your VPC
+- For publicly available clusters, you can specify an Elastic IP address to use
+- Need to enable DNS resolution and DNS hostnames VPC settings to connect to a publicly available cluster using a private IP
+- Use VPC security groups to control access to the database port
+
 ## DynamoDB – Time To Live (TTL)
 
 - Automatically delete items after an expiry timestamp (no extra cost)
