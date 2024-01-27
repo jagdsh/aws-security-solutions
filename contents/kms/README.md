@@ -86,7 +86,7 @@
 ## KMS Multi-Region Keys
 
 - Identical KMS keys in different AWS Regions that can be used interchangeably
-- Multi-Region keys have the same key ID, key material, automatic rotation…
+- Multi-Region keys have the same key ID, key material, automatic rotation
 - Encrypt in one Region and decrypt in other Regions
 - No need to re-encrypt or making cross-Region API calls
 - KMS Multi-Region are NOT global (Primary + Replicas)
@@ -157,6 +157,22 @@
   - DEK that is encrypted under the CMK that you specify (must use Decrypt later)
 - **Decrypt**: decrypt up to 4 KB of data (including Data Encryption Keys)
 - GenerateRandom: Returns a random byte string
+- To share snapshots with another account you must specify `Decrypt` and `CreateGrant` permissions.
+- The `kms:ViaService` condition key can be used to limit key usage to specific AWS services
+- For example:
+
+```json
+{
+  "Condition": {
+    "StringEquals": {
+      "kms: ViaService": [
+        "ec2.us-west-2.amazonaws.com",
+        "rds.us-west-2.amazonaws.com"
+      ]
+    }
+  }
+}
+```
 
 ## Key Rotation
 
@@ -179,6 +195,13 @@
 - Good solution to rotate KMS Key that are not eligible for automatic rotation (like asymmetric CMK)
 
 ![Manual Key Rotation](./kms_manual_key_rotation.png)
+
+### Automatic key rotation is not supported on the following types of KMS keys:
+
+- Asymmetric KMS keys
+- HMAC KMS keys
+- KMS keys in custom key stores (i.e Cloud HSM)
+- KMS keys with imported key material
 
 ## KMS Alias Updating
 

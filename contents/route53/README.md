@@ -60,5 +60,44 @@
 ### Chain of Trust
 
 - All the server are DNSSEC aware
-- 
+
 ![Chain of Trust](./dnssec_chain_of_trust.png)
+
+## Routing policy
+
+| Routing Policy |   What it does |
+| -------------- | -------------- |
+| Simple | Simple DNS response providing the IP address associated with a name |
+| Failover | If primary is down (based on health checks), routes to secondary destination |
+| Geolocation | Uses geographic location you’re in (e.g. Europe) to route you to the closest region |
+| Geoproximity | Routes you to the closest region within a geographic area
+| Latency | Directs you based on the lowest latency route to resources
+| Multivalue answer | Returns several IP addresses and functions as a basic load balancer
+| Weighted | Uses the relative weights assigned to resources to determine which to route to |
+
+## Amazon Route 53 Record Types
+
+- A (address record)
+- AAAA (IPv6 address record)
+- CNAME (canonical name record)
+- Alias (an Amazon Route 53-specific virtual record)
+- CAA (certification authority authorization)
+- MX (mail exchange record)
+- NAPTR (name authority pointer record)
+- NS (name server record)
+- PTR (pointer record)
+- SOA (start of authority record)
+- SPF (sender policy framework)
+- SRV (service locator)
+- TXT (text record)
+
+## CNAME vs Alias
+
+| CNAME | Records Alias Records |
+| -------------- | -------------- |
+| Route 53 charges for CNAME queries | Route 53 doesn’t charge for alias queries to AWS resources
+| You can’t create a CNAME record at the top node of a DNS namespace (zone apex) | You can create an alias record at the zone apex (however you can’t route to a CNAME at the zone apex) |
+| A CNAME record redirects queries for a domain name regardless of record type | Route 53 follows the pointer in an alias record only when the record type also matches |
+| A CNAME can point to any DNS record that is hosted anywhere | An alias record can only point to a CloudFront distribution, Elastic Beanstalk environment, ELB, S3 bucket as a static website, or to another record in the same hosted zone that you’re creating the alias record in |
+| A CNAME record is visible in the answer section of a reply from a Route 53 DNS server | An alias record is only visible in the Route 53 console or the  Route 53 API |
+| A CNAME record is followed by a recursive resolver | An alias record is only followed inside Route 53. This means that both the alias record and its target must exist in Route 53

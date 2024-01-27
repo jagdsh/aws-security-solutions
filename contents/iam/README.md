@@ -12,14 +12,15 @@
 ## IAM Access Analyzer
 
 Find out which resources are shared externally
-• S3 Buckets
-• IAM Roles
-• KMS Keys
-• Lambda Functions and Layers
-• SQS queues
-• Secrets Manager Secrets
-• Define Zone of Trust = AWS Account or AWS Organization
-• Access outside zone of trusts => findings
+
+- S3 Buckets
+- IAM Roles
+- KMS Keys
+- Lambda Functions and Layers
+- SQS queues
+- Secrets Manager Secrets
+- Define Zone of Trust = AWS Account or AWS Organization
+- Access outside zone of trusts => findings
 
 ![Zone of Trust](./iam_references/IAM_access_analyzer.png)
 
@@ -171,6 +172,7 @@ The policy will enforce the following:
     ]
 }
 ```
+
 ### Structure
 
 ![Policy Structure](./iam_references/iam_policy_structure.png)
@@ -423,3 +425,25 @@ Can be used in combinations of AWS Organizations SCP
 ![Resource Policy PrincipalOrgID Diagram](./resource_policy_references/resource_policy_principalOrgId_diagram.png)
 
 ![Resource Policy PrincipalOrgID policy format](./resource_policy_references/resource_policy_principalOrgId.png)
+
+## Amazon EventBridge
+
+### Amazon EventBridge – Security
+
+- When a rule runs, it needs permissions on the target
+- Resource-based policy: Lambda, SNS, SQS, CloudWatch Logs, API Gateway
+- IAM role: Kinesis stream, Systems Manager Run Command, ECS task.
+
+![EventBridge Security](./iam_references/event_bridge_security.png)
+
+## Simple Queue Service (SQS)
+
+### SQS Queue Access Policy
+
+- Cross Account Access
+
+![SQS Access policy cross account](./iam_references/sqs_access_policy_cross_account.png)
+
+- Publish S3 Event Notifications To SQS Queue
+
+![SQS Access policy S3 Event](./iam_references/sqs_access_policy_s3_event_notifications.png)

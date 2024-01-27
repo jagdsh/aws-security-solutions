@@ -48,6 +48,20 @@
 
 ![Architecture](./solution_architecture_cf_waf_secrets_manager.png)
 
+### Match statement
+
+- Match statements compare the web request or its origin against conditions that you provide
+
+| Match Statement | Description |
+| ............... |............ |
+|Geographic match | Inspects the request's country of origin|
+| IP set match | Inspects the request against a set of IP addresses and address ranges |
+| Regex pattern set | Compares regex patterns against a specified request component |
+| Size constraint | Checks size constraints against a specified request component |
+| SQLi attack | Inspects for malicious SQL code in a specified request component |
+| String match | Compares a string to a specified request component |
+| XSS scripting attack | Inspects for cross-site scripting attacks in a specified request component |
+
 ## AWS Shield
 
 ### Protect from DDoS attack

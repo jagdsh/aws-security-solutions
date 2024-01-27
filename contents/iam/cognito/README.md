@@ -103,10 +103,10 @@
     {
       "Action": ["s3:ListBucket"],
       "Effect": "Allow",
-      "Resource": ["arn:aws: 53:: :mybucket"],
+      "Resource": ["arn:aws:53:::mybucket"],
       "Condition": {
         "StringLike": {
-          "S3:prefix": ["${cognito-identity,amazonaws. com:sub)/*"]
+          "S3:prefix": ["${cognito-identity.amazonaws.com:sub}/*"]
         }
       }
     },
@@ -114,7 +114,7 @@
       "Action": ["s3: GetObject", "s3:Putobject"],
       "Effect": "Allow",
       "Resource": [
-        "arn: aws:53:::mybucket.${cognito-identity.amazonaws.com:sub?/*"
+        "arn: aws:53:::mybucket.${cognito-identity.amazonaws.com:sub}/*"
       ]
     }
   ]
@@ -130,15 +130,15 @@
     {
       "Effect": "Allow",
       "Action": [
-        "dynamodb: GetItem",
-        "dynamodb: BatchGet Item",
-        "dynamodb: Query",
-        "dynamodb: PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:BatchGetItem",
+        "dynamodb:Query",
+        "dynamodb:PutItem",
         "dynamodb:UpdateIten",
-        "dynamodb: Deleteltem",
+        "dynamodb:Deleteltem",
         "dynamodb:BatchWriteltem"
       ],
-      "Resource": ["arn:aws: dynanodb:us-west-2: 123456789012: table/MyTable"],
+      "Resource": ["arn:aws:dynamodb:us-west-2: 123456789012:table/MyTable"],
       "Condition": {
         "ForAllValues:StringEquals": {
           "dynamodb: LeadingKeys": ["${cognito-identity.amazonaws.com:sub}"]

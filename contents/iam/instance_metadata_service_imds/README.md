@@ -1,7 +1,7 @@
 # AWS EC2 Instance Metadata Service (IMDS)
 
 - Information about an EC2 instance (e.g., hostname, instance type, network settings, …)
-- Can be accessed from within the EC2 instance itself by making a request to the EC2 metadata service [endpoint](http://169.254.169.254/latest/meta-data)
+- Can be accessed from within the EC2 instance itself by making a request to the EC2 metadata service `http://169.254.169.254/latest/meta-data`
 - Can be accessed using EC2 API or CLI tools (e.g., curl or wget)
 - Metadata is stored in key-value pairs
 - Useful for automating tasks such as setting up an instance's hostname, configuring networking, or installing software

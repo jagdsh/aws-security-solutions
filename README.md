@@ -79,39 +79,44 @@ This is a personal notes capturing various various AWS resources which are helpf
 
 ### Identity and Access management
 
-- [IAM](./contents/iam/README.md)
-  - [IAM Policies](./contents/iam/README.md#)
-  - [IAM Condition](./contents/iam/README.md#)
-  - [IAM Permission](./contents/iam/README.md#)
-  - [Identity Based vs Resource-based Policy](./contents/iam/README.md#)
-    - [Amazon EventBridge – Security](./contents/event-bridge/README.md#amazon-eventbridge–security)
-    - [Simple Queue Service (SQS)](./contents/sqs/README.md#sqs-queue-access-policy)
-  - [Attribute based Access Control (ABAC)](./contents/iam/access_control/README.md#abac–attribute-based-access-control)
-    - [ABAC vs RBAC](./contents/iam/access_control/README.md#abac-vs.-rbac)
-    - [IAM Multi-Factor Authentication](./contents/iam/access_control/README.md#multi-factor-authentication-mfa)
-  - [IAM Credential Report](./contents/iam/access_control/README.md#iam-credentials-report)
-  - [IAM Roles for Services](./contents/iam/access_control/README.md#iam-roles-for-services)
-  - [Amazon STS - Seurity Token Service](./contents/iam/sts/README.md#amazon-sts-seurity-token-service)
-  - [Sample SCP](./contents/iam/sts/README.md#sample-scp)
-  - [Instance Metadata Service (IMDS)](./contents/iam/instance_metadata_service_imds/README.md#aws-ec2-instance-metadata-service-(imds))
-  - [IAM in S3](./contents/iam/s3/README.md#iam-in-s3)
-    - [How Authorization Works in Amazon S3](./contents/iam/s3/README.md#how-authorization-works-in-amazon-s3)
-    - [Object Operation Request example: 3 accounts](./contents/iam/s3/README.md#object-operation-request-example:-3-accounts)
-    - [S3 Canned ACL – Deep Dive](./contents/iam/s3/README.md#s3-canned-acl–deep-dive)
-    - [Bucket Policy – Restrict Public IP Address](./contents/iam/s3/README.md#s3-bucket-policy–restrict-public-ip-address)
-    - [Bucket Policy – Restrict Public IP Address](./contents/iam/s3/README.md#s3-bucket-policy–restrict-public-ip-address)
-    - [VPC Interface Endpoint for S3](./contents/iam/s3/README.md#vpc-interface-endpoint-for-s3)
-    - [Regain Access to Locked S3 Buckets](./contents/iam/s3/README.md#regain-access-to-locked-s3-buckets)
-    - [Access Points](./contents/iam/s3/README.md#s3–access-points)
-    - [CORS in S3](./contents/iam/s3/README.md#what-is-cors)
-  - [Cognito](./contents/iam/cognito/README.md)
-    - [Cognito User Pools](./contents/iam/cognito/README.md#cognito-user-pools-(cup)–user-features)
-    - [Cognito Identity Pools – IAM Roles](./contents/iam/cognito/README.md#cognito-identity-pools–iam-roles)
-    - [Cognito User Pools vs Identity Pools](./contents/iam/cognito/README.md#cognito-user-pools-vs-identity-pools)
-    - [Cognito User Pool Groups](./contents/iam/cognito/README.md#cognito-user-pool-groups)
-  - [Identity Federation](./contents/iam/identity/README.md#identity-federation-in-aws)
-  - [IAM Identity Center](./contents/iam/identity/README.md#aws-iam-identity-center)
-  - [Active Directory](./contents/iam/active_directory/README.md#active-directory)
+[IAM](./contents/iam/README.md)
+
+- [IAM Policies](./contents/iam/README.md#iam-policies)
+  - [Types of Policies](./contents/iam/README.md#types-of-policies)
+  - [(Action | Not Action) & (Allow | Deny)](./contents/iam/README.md#(action-|-not-action)-&-(allow-|-deny))
+- [IAM Condition](./contents/iam/README.md#iam-policies-condition)
+- [IAM Permission](./contents/iam/README.md#)
+- [IAM Permission Boundaries](./contents/iam/README.md#iam-permission-boundaries)
+- [Evaluation Logic](./contents/iam/README.md#evaluation-logic)
+- [IAM Roles vs Resource Based Policies](./contents/iam/README.md#iam-roles-vs-resource-based-policies)
+- [Amazon EventBridge – Security](./contents/iam/README.md#amazon-eventbridge)
+- [Simple Queue Service (SQS)](./contents/iam/README.md#simple-queue-service-(sqs))
+- [Attribute based Access Control (ABAC)](./contents/iam/access_control/README.md#abac–attribute-based-access-control)
+  - [ABAC vs RBAC](./contents/iam/access_control/README.md#abac-vs.-rbac)
+  - [IAM Multi-Factor Authentication](./contents/iam/access_control/README.md#multi-factor-authentication-mfa)
+- [IAM Credential Report](./contents/iam/access_control/README.md#iam-credentials-report)
+- [IAM Roles for Services](./contents/iam/access_control/README.md#iam-roles-for-services)
+- [Amazon STS - Seurity Token Service](./contents/iam/sts/README.md#amazon-sts-seurity-token-service)
+- [Sample SCP](./contents/iam/sts/README.md#sample-scp)
+- [Instance Metadata Service (IMDS)](./contents/iam/instance_metadata_service_imds/README.md#aws-ec2-instance-metadata-service-(imds))
+- [IAM in S3](./contents/iam/s3/README.md#iam-in-s3)
+  - [How Authorization Works in Amazon S3](./contents/iam/s3/README.md#how-authorization-works-in-amazon-s3)
+  - [Object Operation Request example: 3 accounts](./contents/iam/s3/README.md#object-operation-request-example:-3-accounts)
+  - [S3 Canned ACL – Deep Dive](./contents/iam/s3/README.md#s3-canned-acl–deep-dive)
+  - [Bucket Policy – Restrict Public IP Address](./contents/iam/s3/README.md#s3-bucket-policy–restrict-public-ip-address)
+  - [Bucket Policy – Restrict Public IP Address](./contents/iam/s3/README.md#s3-bucket-policy–restrict-public-ip-address)
+  - [VPC Interface Endpoint for S3](./contents/iam/s3/README.md#vpc-interface-endpoint-for-s3)
+  - [Regain Access to Locked S3 Buckets](./contents/iam/s3/README.md#regain-access-to-locked-s3-buckets)
+  - [Access Points](./contents/iam/s3/README.md#s3–access-points)
+  - [CORS in S3](./contents/iam/s3/README.md#what-is-cors)
+- [Cognito](./contents/iam/cognito/README.md)
+  - [Cognito User Pools](./contents/iam/cognito/README.md#cognito-user-pools-(cup)–user-features)
+  - [Cognito Identity Pools – IAM Roles](./contents/iam/cognito/README.md#cognito-identity-pools–iam-roles)
+  - [Cognito User Pools vs Identity Pools](./contents/iam/cognito/README.md#cognito-user-pools-vs-identity-pools)
+  - [Cognito User Pool Groups](./contents/iam/cognito/README.md#cognito-user-pool-groups)
+- [Identity Federation](./contents/iam/identity/README.md#identity-federation-in-aws)
+- [IAM Identity Center](./contents/iam/identity/README.md#aws-iam-identity-center)
+- [Active Directory](./contents/iam/active_directory/README.md#active-directory)
 
 ### Data Protection
 
@@ -248,3 +253,8 @@ This is a personal notes capturing various various AWS resources which are helpf
 - ECR: Elastic Container Registory
 - ECS: Elastic Container Service
 - ENI: Elastic Network Interface
+- XKS: KMS external key store
+- CMK: Customer Master Keys
+- DEK: Data Encryption Keys
+- HSM: Hardware Security Modules
+

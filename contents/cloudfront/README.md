@@ -29,7 +29,13 @@
 
 ## S3 as an Origin
 
+- If you have enabled public access of the bucket using ACL for the bucket, you need to disable it so Origin Access Identity (OAI) is used.
+
 ![S3 as Origin](./cf_s3_origin.png)
+
+## CloudFront SSL/TLS
+
+[Cloud front with SSL / TLS](./cf_ssl_tls.png)
 
 ## CloudFront vs S3 Cross Region Replication
 

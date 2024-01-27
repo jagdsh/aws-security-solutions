@@ -257,3 +257,8 @@
 
 ![Object Encryption](./object_encryption.png)
 
+## Copying and Sharing AMIs and Snapshots
+
+![Encryption EMI ABS](./encryption_ami_ebs.png)
+
+![Encryption EMI ABS Continuation](./encryption_ami_ebs_1.png)

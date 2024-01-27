@@ -202,6 +202,8 @@ unless explicitly authorized by Account A
 
 ![VPC Interface Endpoint](./vpc_interface_endpoint.png)
 
+**[TROUBLESHOOTING]**:
+
 - Using gateway endpoint wil only be accessed by resources in your VPC, not side to side VPN, VPC peering etc.
 
 ## Amazon S3 Security – VPC Endpoint Strategies
@@ -378,4 +380,4 @@ Works with active/active or active/passive setups
 
 ![S3 CORS](./cors_s3.png)
 
-![S3 CORS Example Index](../../../codeSample/sample_codes/s3/index.html)
+[S3 CORS Example Index](../../../codeSample/sample_codes/s3/index.html)
