@@ -48,7 +48,9 @@
 
 [Reference](https://aws.amazon.com/blogs/aws/launch-amazon-cognito-user-pools-general-availability-app-integration-and-federation/)
 
-## Cognito Identity Pools (Federated Identities)
+## Cognito Identity Pools
+
+### (Federated Identities)
 
 - Get identities for “users” so they obtain temporary AWS credentials
 - Your identity pool (e.g identity source) can include:

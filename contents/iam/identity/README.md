@@ -49,13 +49,15 @@
 
 ![Custom Identity Broker Application](./customer_identity.png)
 
-## Web Identity Federation – Without Cognito
+## Web Identity Federation
+
+### Without Cognito
 
 - Not recommended by AWS – use Cognito instead
 
 ![Web Identity without Cognito](./web_identity_without_congnito.png)
 
-## Web Identity Federation – With Cognito
+### With Cognito
 
 - Preferred over for Web Identity Federation
   - Create IAM Roles using Cognito with the least privilege needed
@@ -68,7 +70,7 @@
 
 ![Web Identity with Cognito](./web_identity_with_congnito.png)
 
-## Web Identity Federation – IAM Policy
+### IAM Policy
 
 - After being authenticated with Web Identity Federation, you can identify the user with an IAM policy variable
 - Examples:
@@ -84,10 +86,10 @@
     {
       "Effect": "Allow",
       "Action": "33:ListBucket",
-      "Resource": "arn:aws:s3::: myBucket",
+      "Resource": "arn:aws:s3:::myBucket",
       "Condition": {
         "StringLike": {
-          "s3: prefix": "Amazon/mynumbersgane/S(www.amazon.com:user_1d}/*"
+          "s3: prefix": "Amazon/mynumbersgame/${www.amazon.com:user_id}/*"
         }
       }
     },
@@ -95,8 +97,8 @@
       "Effect": "Allow",
       "Action": ["S3:Getobject", "S3: Putobject", "S3: DeleteObject"],
       "Resource": [
-        "arn:aws:53: ::myBucket/amazon/mynunbersgane/$(www.anazon.consuser_id)",
-        "arn:aws: 53:::myBucket/amazon/mynunbersgane/S(www.amazon.con:user_id}/**"
+        "arn:aws:53:::myBucket/amazon/mynumbersgame/${www.anazon.com:user_id}",
+        "arn:aws:53:::myBucket/amazon/mynumbersgame/${www.amazon.com:user_id}/**"
       ]
     }
   ]
@@ -134,19 +136,17 @@
   - Built-in identity store in IAM Identity Center
   - 3rd party: Active Directory (AD), OneLogin, Okta
 
-## AWS IAM Identity Center – Login Flow
+![IAM Identity Center](./iam_identity_center.png)
+
+### AWS IAM Identity Center – Login Flow
 
 ![AWS IAM Identity Center](./aws_iam_identity_center_login.png)
 
-## AWS IAM Identity Center Integration
+### AWS IAM Identity Center Integration
 
 ![AWS IAM Identity Center](./aws_iam_identity_center.png)
 
-## IAM Identity Center
-
-![IAM Identity Center](./iam_identity_center.png)
-
-## AWS IAM Identity Center Fine-grained Permissions and Assignments
+### AWS IAM Identity Center Fine-grained Permissions and Assignments
 
 - Multi-Account Permissions
   - Manage access across AWS accounts in your AWS Organization
