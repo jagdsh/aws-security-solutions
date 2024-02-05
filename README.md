@@ -2,9 +2,14 @@
 
 This is a personal notes capturing various various AWS resources which are helpful in securing application. This repo containsa an list of AWS resources which can be used for detecting, isolating and analyzing.
 
-## Index
+## Threat Detection and Incident Response
 
-### Threat Detection and Incident Response
+Key Services:
+
+- AWS Config
+- AWS Systems Manager
+- AWS Shield
+- AWS WAF
 
 - [Guard Duty](./contents/guard_duty/README.md)
   - [Few points to remember](./contents/guard_duty/README.md#few-points-to-remember)
@@ -54,7 +59,14 @@ This is a personal notes capturing various various AWS resources which are helpf
 - If temporary security credentials issued by AWS STS are compromised you can revoke all active sessions for the IAM Role
 - You can block DDoS attacks where the User-Agent field of the request header has a certain value by using a web ACL with a string match condition that matches that value
 
-### Security Logging and Monitoring
+## Security Logging and Monitoring
+
+Key Services:
+
+- AWS Cloud trail
+- AWS Config
+- Amazon Cloudwatch
+- Amazon Guard Duty
 
 - [Amazon Inspector](./contents/inspector/README.md)
 - [CloudWatch](./contents/cloudwatch/README.md)
@@ -92,14 +104,26 @@ Events
 - To enable Amazon Detective, you must have enabled Amazon GuardDuty more than 48 hours ago
 - You can generate an alert if users add bucket policies by configuring an Amazon EventBridge rule that uses the “AWS API Call via CloudTrail” event source and the “s3:PutBucketPolicy” event pattern
 
-### Infrastructure and Security
+## Infrastructure and Security
+
+Key Services:
+
+- Amazon Elastic Compute Cloud
+- AWS Key Management Service
+- AWS CloudHSM
 
 - [Bastion Host](./contents/infrastructure-and-security/README.md#bastion-host)
 - [Site to Site VPN](./contents/infrastructure-and-security/README.md#site-to-site-vpn)
+  - [Site to Site VPN connections](./contents/infrastructure-and-security/README.md#site-to-site-vpn-connections)
+  - [Client VPN Authentication Type](./contents/infrastructure-and-security/README.md#client-vpn-authentication-type)
 - [Client VPN](./contents/infrastructure-and-security/README.md#client-vpn)
 - [VPC Peering](./contents/infrastructure-and-security/README.md#vpc-peering)
+  - [VPC Peering](./contents/infrastructure-and-security/README.md#dns-resolution-in-vpc)
 - [VPC Endpoints](./contents/vpc/endpoints/README.md)
-  - [Diff VPC Endpoints](./contents/vpc/endpoints/README.md#interface-vs-gateway-endpoint)
+  - [VPC Endpoint Gateway](./contents/vpc/endpoints/README.md#vpc-endpoint-gateway)
+  - [VPC Endpoints Interface](./contents/vpc/endpoints/README.md#vpc-endpoints-interface)
+  - [VPC Endpoint Examples](./contents/vpc/endpoints/README.md#vpc-endpoint-examples)
+  - [Gateway vs Interface Endpoints](./contents/vpc/endpoints/README.md#interface-vs-gateway-endpoint)
 - [Private Link](./contents/vpc/private-link/README.md)
 - [Network Access Control List](./contents/security_groups_NACLs/README.md#network-access-control-list)
 - [Security Groups](./contents/security_groups_NACLs/README.md#security-group-vs.-nacls)
@@ -150,9 +174,11 @@ Events
 - AWS Certificate Manager (ACM) can be used to create SSL/TLS certificates using public or private domain names and subdomains or
 wildcards
 
-### Identity and Access management
+## Identity and Access management
 
-[IAM](./contents/iam/README.md)
+Key Services:
+
+- [IAM](./contents/iam/README.md)
 
 - [IAM Policies](./contents/iam/README.md#iam-policies)
   - [Types of Policies](./contents/iam/README.md#types-of-policies)
@@ -234,7 +260,14 @@ identities or resources they are associated with
 - AWS SSO can be used for single sign on across many accounts using an existing on-premises identity provider
 - Amazon Cognito is used for sign-in and sign-up for mobile applications. User pools are used for creating users or federating to social IdPs and identity pools are used for obtaining temporary, limited-privilege credentials for AWS services
 
-### Data Protection
+## Data Protection
+
+Key Services:
+
+- AWS Key Management Service
+- Amazon Macie
+- Amazon Virtual Private Cloud
+- Network access Control List
 
 - [Encryption](./contents/data_protection/README.md#why-encryption?)
 - [CloudHSM](./contents/cloudhsm/README.md#cloudhsm)
@@ -327,7 +360,7 @@ identities or resources they are associated with
 - All data flowing across AWS Regions over the AWS global network is automatically encrypted at the physical layer before it leaves AWS secured facilities. All traffic between AZs is also encrypted
 - Traffic between instances may be encrypted in some circumstances. The instances must use a supported instance type and be within the same Region and VPC (or in a peered VPC)
 
-### Management and Security Governance
+## Management and Security Governance
 
 - [AWS Organizations](./contents/organizations_and_accout_tower/README.md#aws-organizations)
   - [SCP Hierarchy](./contents/organizations_and_accout_tower/README.md#scp-hierarchy)

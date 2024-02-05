@@ -2,7 +2,7 @@
 
 ## Bastion host
 
-![Bastion Host](./visual-referencesbastion_host.png)
+![Bastion Host](./visual-references/bastion_host.png)
 
 - We can use a Bastion Host to SSH into our private EC2 instances
 - The bastion is in the public subnet which is then connected to all other private subnets
@@ -13,7 +13,7 @@
 
 ## Site to Site VPN
 
-![Site to Site VPN](./visual-referencessite_to_site_vpn.png)
+![Site to Site VPN](./visual-references/site_to_site_vpn.png)
 
 - Virtual Private Gateway (VGW) => *AWS Side*
   - VPN concentrator on the AWS side of the VPN connection
@@ -27,9 +27,9 @@
 - Nat Device
   - If it’s behind a NAT device that’s enabled for NAT traversal (NAT-T), use the public IP address of the NAT device
 
-## Site to Site VPN connections
+### Site to Site VPN connections
 
-![VPN Connections](./visual-referencessite_to_site_vpn_connections.png)
+![VPN Connections](./visual-references/site_to_site_vpn_connections.png)
 
 - Customer Gateway Device (On-premises)
   - What IP address to use?
@@ -38,9 +38,9 @@
 - Important step: enable Route Propagation for the Virtual Private Gateway in the route table that is associated with your subnets
 - If you need to ping your EC2 instances from on-premises, make sure you add the ICMP protocol on the inbound of your security groups
 
-## VPN Cloudhub
+### VPN Cloudhub
 
-![CloudHub](./visual-referencessite_to_site_cloud_hub.png)
+![CloudHub](./visual-references/site_to_site_cloud_hub.png)
 
 - Provide secure communication between multiple sites, if you have multiple VPN connections
 - Low-cost hub-and-spoke model for primary or secondary network connectivity between different locations (VPN only)
@@ -55,9 +55,9 @@
 - Allow you to connect to your EC2 instances over a private IP (just as if you were in the private VPC network)
 - Goes over public Internet
 
-## Client VPN Authentication Type
+### Client VPN Authentication Type
 
-![Client VPN Authentication](./client_vpn_authentication.png)
+![Client VPN Authentication](./visual-references/client_vpn_authentication.png)
 
 - Active Directory Authentication
   - Authenticate against Microsoft Active Directory (User-Based)

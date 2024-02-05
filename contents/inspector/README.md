@@ -21,8 +21,7 @@
     - Whenever there is a update of the CVE database Amazon Inspector runs the scanning again.
 - Risk Score is associated with all vulerabilituy for prioritization
 
-
-## Trouble shooting
+## Troubleshooting
 
 When we enable Amazon Inspector and we get Unmanged instance status like the following 
 ![Unmanaged Status](./unmanaged_instance.png)

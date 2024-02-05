@@ -14,13 +14,13 @@ Note: We should be keeping the private key secure, we can cannot recover it.
 
 The key pairs, are persisted in the EC2 instance. Even when we delete it from AWS console, it remains in the mounted volume `~/.ssh/authorized_keys`
 
-[Reference Diagram](./references/key_pairs_console.png)
+![Reference Diagram](./references/key_pair_console.png)
 
 - When EC2 machines are pre build using AMI the old keys wil be present in the instance along with the new key used while creating EC2 instance.
 
 - The user can use old/new private key for SSH into EC2 instance
 
-[Reference Diagram](./references/key_pair_old_new.png)
+![Reference Diagram](./references/key_pair_old_new.png)
 
 ## Remediating EC2 Exposed Key Pair
 

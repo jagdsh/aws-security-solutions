@@ -40,8 +40,9 @@
 - First Query Result S3 bucket
 - Then the Data Source -> Create a database using the following sample query 
 
-![S3 Access logs Athena](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-s3-access-logs-to-identify-requests.html)
-![S3 Access logs Athena](../../codeSample/sample_codes/s3-advanced/athena-s3-access-logs.sql)
+[S3 Access logs Athena HTML](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-s3-access-logs-to-identify-requests.html)
+
+[S3 Access logs Athena](../../codeSample/sample_codes/s3-advanced/athena-s3-access-logs.sql)
 
 ## Troubleshooting
 
@@ -51,4 +52,4 @@
 - arn:aws:iam::<account_id>:role/service-role/aws-quicksight-s3-consumers-role-v0 (Default)
 - arn:aws:iam::<account_id>:role/service-role/aws-quicksight-service-role-v0
 
-[Insufficient Permissions](./troubleshooting_permission_issue.png)
+![Insufficient Permissions](./troubleshooting_permission_issue.png)

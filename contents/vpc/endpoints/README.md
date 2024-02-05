@@ -22,7 +22,9 @@
 
 ![VPC Endpoint Gateway](./vpc-endpoint_gateway.png)
 
-## VPC Endpoints Interface (VPC ENI)
+## VPC Endpoints Interface
+
+### (VPC ENI)
 
 - Provision an ENI that will have a private endpoint interface hostname
 - Leverage Security Groups for security
