@@ -53,8 +53,8 @@
 - Match statements compare the web request or its origin against conditions that you provide
 
 | Match Statement | Description |
-| ............... |............ |
-|Geographic match | Inspects the request's country of origin|
+| --------------- | ----------- |
+| Geographic match | Inspects the request's country of origin|
 | IP set match | Inspects the request against a set of IP addresses and address ranges |
 | Regex pattern set | Compares regex patterns against a specified request component |
 | Size constraint | Checks size constraints against a specified request component |

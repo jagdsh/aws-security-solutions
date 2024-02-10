@@ -6,10 +6,10 @@ This is a personal notes capturing various various AWS resources which are helpf
 
 Key Services:
 
-- AWS Config
-- AWS Systems Manager
-- AWS Shield
-- AWS WAF
+1. AWS Config
+2. AWS Systems Manager
+3. AWS Shield
+4. AWS WAF
 
 - [Guard Duty](./contents/guard_duty/README.md)
   - [Few points to remember](./contents/guard_duty/README.md#few-points-to-remember)
@@ -63,10 +63,10 @@ Key Services:
 
 Key Services:
 
-- AWS Cloud trail
-- AWS Config
-- Amazon Cloudwatch
-- Amazon Guard Duty
+1. AWS Cloud trail
+2. AWS Config
+3. Amazon Cloudwatch
+4. Amazon Guard Duty
 
 - [Amazon Inspector](./contents/inspector/README.md)
 - [CloudWatch](./contents/cloudwatch/README.md)
@@ -108,9 +108,9 @@ Events
 
 Key Services:
 
-- Amazon Elastic Compute Cloud
-- AWS Key Management Service
-- AWS CloudHSM
+1. Amazon Elastic Compute Cloud
+2. AWS Key Management Service
+3. AWS CloudHSM
 
 - [Bastion Host](./contents/infrastructure-and-security/README.md#bastion-host)
 - [Site to Site VPN](./contents/infrastructure-and-security/README.md#site-to-site-vpn)
@@ -118,7 +118,7 @@ Key Services:
   - [Client VPN Authentication Type](./contents/infrastructure-and-security/README.md#client-vpn-authentication-type)
 - [Client VPN](./contents/infrastructure-and-security/README.md#client-vpn)
 - [VPC Peering](./contents/infrastructure-and-security/README.md#vpc-peering)
-  - [VPC Peering](./contents/infrastructure-and-security/README.md#dns-resolution-in-vpc)
+  - [DNS Resolution in VPC](./contents/infrastructure-and-security/README.md#dns-resolution-in-vpc)
 - [VPC Endpoints](./contents/vpc/endpoints/README.md)
   - [VPC Endpoint Gateway](./contents/vpc/endpoints/README.md#vpc-endpoint-gateway)
   - [VPC Endpoints Interface](./contents/vpc/endpoints/README.md#vpc-endpoints-interface)
@@ -178,7 +178,7 @@ wildcards
 
 Key Services:
 
-- [IAM](./contents/iam/README.md)
+1. [IAM](./contents/iam/README.md)
 
 - [IAM Policies](./contents/iam/README.md#iam-policies)
   - [Types of Policies](./contents/iam/README.md#types-of-policies)
